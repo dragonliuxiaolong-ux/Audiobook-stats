@@ -4,8 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CV小蛟龙的配音简历</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
 <style>
   :root {
     color-scheme: light;
@@ -70,12 +68,11 @@
     letter-spacing: 0.5px;
   }
   .brand-name {
-    font-family: 'Ma Shan Zheng', 'PingFang SC', cursive;
-    font-size: 30px;
-    font-weight: 400;
+    font-weight: 900;
     color: var(--accent);
-    letter-spacing: 2px;
-    margin-right: 2px;
+    letter-spacing: 1px;
+    padding: 0 3px;
+    border-bottom: 3px solid var(--accent);
   }
   .subtitle { color: var(--muted); font-size: 13px; margin-top: 8px; line-height: 1.6; }
 
@@ -227,6 +224,36 @@
   .bio-stats .item { text-align: left; }
   .bio-stats .num { font-size: 20px; font-weight: 800; color: var(--accent); }
   .bio-stats .label { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .stats-strip {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 16px 20px;
+    margin: 4px 0 22px;
+  }
+  .contact-list { display: flex; flex-wrap: wrap; gap: 12px; }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--cream);
+    border-radius: 12px;
+    padding: 10px 16px;
+    font-size: 14px;
+    color: #5a5046;
+  }
+  .contact-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: 999px;
+    padding: 3px 11px;
+    flex-shrink: 0;
+  }
+  .contact-value { font-weight: 600; letter-spacing: 0.5px; }
   .demo-box {
     background: var(--cream);
     border-radius: 14px;
@@ -270,20 +297,11 @@
       </div>
       <p class="bio-text">
         圈名 CV小蛟龙，男声配音演员，本音为青年音，音色可塑性强、全声线覆盖，
-        擅长短剧、漫剧、动漫、广播剧、有声剧、游戏配音等多种类型的角色演绎。
+        从业 4 年以来，擅长短剧、漫剧、动漫、广播剧、有声剧、游戏配音等多种类型的角色演绎。
       </p>
       <p class="bio-text">
-        主业方向是有声书演播：从业 4 年以来累计参与 150 余部有声剧作品配音，
-        其中播放量破千万的作品 15 部、破亿的作品 2 部。
-      </p>
-      <div class="bio-stats">
-        <div class="item"><div class="num">150+</div><div class="label">参演有声剧作品</div></div>
-        <div class="item"><div class="num">15</div><div class="label">播放量破千万</div></div>
-        <div class="item"><div class="num">2</div><div class="label">播放量破亿</div></div>
-      </div>
-      <p class="bio-text">
-        除有声书外也涉猎多种配音类型：动漫《憨豆先生》中文版、《咖宝车神之超能救援队》，
-        漫剧《神级灵兽》《神战华夏》，游戏《新三国》等多部作品。
+        参与的动漫作品有《憨豆先生》中文版、《咖宝车神之超能救援队》，
+        漫剧作品有《神级灵兽》《神战华夏》，游戏配音作品有《新三国》等多部作品。
       </p>
     </div>
 
@@ -295,7 +313,21 @@
       </div>
     </div>
 
+    <div class="section-title">联系合作</div>
+    <div class="bio-card">
+      <div class="contact-list">
+        <div class="contact-item"><span class="contact-label">微信</span><span class="contact-value">littledragonisfull</span></div>
+        <div class="contact-item"><span class="contact-label">电话</span><span class="contact-value">182 7028 0045</span></div>
+      </div>
+    </div>
+
     <div class="status-line" id="statusLine">加载中…</div>
+
+    <div class="stats-strip">
+      <div class="item"><div class="num">150+</div><div class="label">参演有声剧作品</div></div>
+      <div class="item"><div class="num">15</div><div class="label">播放量破千万</div></div>
+      <div class="item"><div class="num">2</div><div class="label">播放量破亿</div></div>
+    </div>
 
     <div class="section-title">部分参演作品一览</div>
     <div class="list-note">数据来自喜马拉雅，每日自动更新一次 · 点击作品卡片可直达喜马拉雅播放页</div>

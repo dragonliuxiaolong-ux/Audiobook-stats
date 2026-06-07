@@ -180,6 +180,50 @@
   .card .updated { font-size: 11px; color: #c9bfb2; margin-top: 4px; white-space: nowrap; }
   .card .arrow { font-size: 13px; color: #c9bfb2; margin-left: 4px; }
 
+  /* ---------- Bio / intro ---------- */
+  .bio-card {
+    background: var(--card);
+    border-radius: 18px;
+    padding: 20px 20px 18px;
+    margin-bottom: 26px;
+    box-shadow: 0 2px 12px rgba(120, 90, 50, 0.08);
+  }
+  .bio-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+  .bio-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: 999px;
+    padding: 4px 13px;
+  }
+  .bio-text { font-size: 14px; line-height: 1.85; color: #5a5046; }
+  .bio-stats {
+    display: flex;
+    gap: 22px;
+    margin: 16px 0 18px;
+    flex-wrap: wrap;
+  }
+  .bio-stats .item { text-align: left; }
+  .bio-stats .num { font-size: 20px; font-weight: 800; color: var(--accent); }
+  .bio-stats .label { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .demo-box {
+    background: var(--cream);
+    border-radius: 14px;
+    padding: 14px 16px;
+  }
+  .demo-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .demo-box audio { width: 100%; display: block; }
+
   .empty-hint, .error-hint { text-align: center; color: var(--muted); font-size: 13px; margin-top: 30px; }
   .footer-note { text-align: center; color: #c9bfb2; font-size: 12px; margin-top: 28px; line-height: 1.7; }
 </style>
@@ -197,6 +241,29 @@
   </div>
 
   <div class="wrap">
+    <div class="bio-card">
+      <div class="bio-tags">
+        <span class="bio-tag">男声</span>
+        <span class="bio-tag">本音青年音</span>
+        <span class="bio-tag">全声线</span>
+        <span class="bio-tag">从业 4 年</span>
+      </div>
+      <p class="bio-text">
+        圈名 CV小蛟龙，男声配音演员，本音为青年音，音色可塑性强、全声线覆盖，
+        擅长短剧、漫剧、动漫、广播剧、有声剧、游戏配音等多种类型的角色演绎。
+        从业 4 年以来累计参与 150 余部有声剧作品配音，其中播放量破千万的作品 15 部、破亿的作品 2 部。
+      </p>
+      <div class="bio-stats">
+        <div class="item"><div class="num">150+</div><div class="label">参演有声剧作品</div></div>
+        <div class="item"><div class="num">15</div><div class="label">播放量破千万</div></div>
+        <div class="item"><div class="num">2</div><div class="label">播放量破亿</div></div>
+      </div>
+      <div class="demo-box">
+        <div class="demo-label">🎧 个人声音展示 · CV小蛟龙的声展2024</div>
+        <audio controls preload="none" src="voice_demo.mp3">您的浏览器不支持音频播放，可点击下载试听。</audio>
+      </div>
+    </div>
+
     <div class="status-line" id="statusLine">加载中…</div>
 
     <div class="section-title">部分参演作品一览</div>

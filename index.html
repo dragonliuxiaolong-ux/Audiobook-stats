@@ -5,131 +5,218 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CV小蛟龙部分参演有声书作品播放量</title>
 <style>
-  :root { color-scheme: light; }
+  :root {
+    color-scheme: light;
+    --ink: #2b2622;
+    --muted: #8a7f74;
+    --cream: #f7f1e8;
+    --card: #ffffff;
+    --accent: #c98a4b;
+    --accent-soft: #f3e3d0;
+    --lead: #2a9d4a;
+    --lead-bg: #e6f7ea;
+    --support: #2f6fb0;
+    --support-bg: #e7f0fa;
+  }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
-    background: #f5f5f7;
-    color: #1d1d1f;
-    padding: 20px 14px 60px;
+    background: linear-gradient(180deg, #faf5ee 0%, #f3eee6 280px, #f3eee6 100%);
+    color: var(--ink);
+    padding: 0 0 60px;
   }
-  .wrap { max-width: 720px; margin: 0 auto; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
 
-  .header-row {
+  /* ---------- Hero ---------- */
+  .hero {
+    background: linear-gradient(135deg, #fbf3e7 0%, #f4e6d4 55%, #efddc8 100%);
+    border-radius: 0 0 28px 28px;
+    padding: 36px 16px 30px;
+    margin-bottom: 28px;
+    box-shadow: 0 6px 24px rgba(180, 140, 90, 0.15);
+  }
+  .hero-inner {
+    max-width: 760px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
-    gap: 14px;
-    margin-bottom: 4px;
+    gap: 22px;
   }
   .avatar {
-    width: 56px;
-    height: 56px;
+    width: 92px;
+    height: 92px;
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.12);
+    border: 3px solid #fff;
+    box-shadow: 0 4px 16px rgba(120, 90, 50, 0.25);
   }
-  h1 { font-size: 20px; line-height: 1.35; }
-  .subtitle { color: #6e6e73; font-size: 13px; margin: 8px 0 16px; }
-  .status-line { font-size: 12px; color: #8e8e93; margin-bottom: 14px; min-height: 16px; }
-
-  .card {
-    background: #fff;
-    border-radius: 14px;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
-    padding: 14px;
-    margin-bottom: 12px;
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    transition: transform 0.12s ease, box-shadow 0.12s ease;
-  }
-  .card:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
-  }
-  .card .top-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  .card .left {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    min-width: 0;
-  }
-  .rank {
-    width: 24px;
-    flex-shrink: 0;
-    text-align: center;
-    font-size: 15px;
-    font-weight: 700;
-    color: #aeaeb2;
-    padding-top: 4px;
-  }
-  .rank.top3 { color: #d23b6b; }
-  .cover {
-    width: 56px;
-    height: 56px;
-    border-radius: 10px;
-    object-fit: cover;
-    flex-shrink: 0;
-    background: #eee;
-  }
-  .card .title { font-size: 16px; font-weight: 600; line-height: 1.4; }
-  .card .meta { font-size: 13px; color: #6e6e73; margin-top: 4px; }
-  .card .tag {
+  .hero-text { min-width: 0; }
+  .eyebrow {
     display: inline-block;
     font-size: 12px;
-    border-radius: 6px;
-    padding: 2px 8px;
-    margin-right: 6px;
-    font-weight: 500;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 6px;
   }
-  .card .tag.lead {
-    color: #2a9d4a;
-    background: #e6f7ea;
+  h1 {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
   }
-  .card .tag.support {
-    color: #0071e3;
-    background: #eaf3fd;
-  }
-  .card .play-count { font-size: 20px; font-weight: 700; color: #0071e3; white-space: nowrap; text-align: right; }
-  .card .updated { font-size: 12px; color: #aeaeb2; margin-top: 6px; text-align: right; }
+  .subtitle { color: var(--muted); font-size: 13px; margin-top: 8px; line-height: 1.6; }
 
+  /* ---------- Stats ---------- */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 26px;
+  }
+  .stat {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 16px 12px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(120, 90, 50, 0.07);
+  }
+  .stat .num { font-size: 22px; font-weight: 800; color: var(--accent); letter-spacing: 0.5px; }
+  .stat .label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+  .status-line { font-size: 12px; color: var(--muted); margin-bottom: 14px; min-height: 16px; }
+
+  .section-title {
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title::before {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 16px;
+    border-radius: 3px;
+    background: var(--accent);
+  }
+
+  /* ---------- List header ---------- */
   .list-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 14px;
+    padding: 0 18px;
     margin-bottom: 8px;
     font-size: 12px;
-    color: #8e8e93;
+    color: var(--muted);
     font-weight: 600;
+    letter-spacing: 0.5px;
   }
   .list-header .lh-left {
     display: flex;
     align-items: center;
+    gap: 14px;
+  }
+  .list-header .lh-rank { width: 26px; text-align: center; }
+  .list-header .lh-cover { width: 60px; text-align: left; }
+
+  /* ---------- Card ---------- */
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgba(120, 90, 50, 0.07);
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    border: 1px solid transparent;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(120, 90, 50, 0.16);
+    border-color: var(--accent-soft);
+  }
+  .card .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     gap: 12px;
   }
-  .list-header .lh-rank { width: 24px; text-align: center; }
-  .list-header .lh-cover { width: 56px; text-align: left; }
+  .card .left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+  }
+  .rank {
+    width: 26px;
+    flex-shrink: 0;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 800;
+    color: #c9bfb2;
+  }
+  .rank.top3 { color: var(--accent); font-size: 18px; }
+  .cover {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: var(--cream);
+    box-shadow: 0 2px 8px rgba(120, 90, 50, 0.12);
+  }
+  .card .title {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .card .meta { font-size: 13px; color: var(--muted); margin-top: 5px; display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+  .card .tag {
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 6px;
+    padding: 2px 9px;
+    font-weight: 600;
+  }
+  .card .tag.lead { color: var(--lead); background: var(--lead-bg); }
+  .card .tag.support { color: var(--support); background: var(--support-bg); }
+  .card .right { text-align: right; flex-shrink: 0; }
+  .card .play-count { font-size: 19px; font-weight: 800; color: var(--accent); white-space: nowrap; }
+  .card .updated { font-size: 11px; color: #c9bfb2; margin-top: 4px; white-space: nowrap; }
+  .card .arrow { font-size: 13px; color: #c9bfb2; margin-left: 4px; }
 
-  .empty-hint, .error-hint { text-align: center; color: #aeaeb2; font-size: 13px; margin-top: 30px; }
-  .footer-note { text-align: center; color: #aeaeb2; font-size: 12px; margin-top: 24px; }
+  .empty-hint, .error-hint { text-align: center; color: var(--muted); font-size: 13px; margin-top: 30px; }
+  .footer-note { text-align: center; color: #c9bfb2; font-size: 12px; margin-top: 28px; line-height: 1.7; }
 </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="header-row">
+  <div class="hero">
+    <div class="hero-inner">
       <img class="avatar" src="avatar.jpg" alt="CV小蛟龙头像">
-      <h1>CV小蛟龙部分参演有声书作品播放量</h1>
+      <div class="hero-text">
+        <span class="eyebrow">Voice Actor · 有声书演播</span>
+        <h1>CV小蛟龙部分参演有声书作品播放量</h1>
+        <div class="subtitle">数据来自喜马拉雅，每日自动更新一次 · 点击作品卡片可直达喜马拉雅播放页</div>
+      </div>
     </div>
-    <div class="subtitle">数据来自喜马拉雅，每日自动更新一次</div>
+  </div>
+
+  <div class="wrap">
+    <div class="stats" id="statsRow"></div>
     <div class="status-line" id="statusLine">加载中…</div>
 
+    <div class="section-title">参演作品一览</div>
     <div class="list-header">
       <div class="lh-left">
         <span class="lh-rank">排名</span>
@@ -182,11 +269,34 @@
     }[c]));
   }
 
+  function renderStats(works) {
+    const row = document.getElementById('statsRow');
+    if (!works || works.length === 0) { row.innerHTML = ''; return; }
+    const total = works.reduce((s, w) => s + (w.playCount || 0), 0);
+    const leadCount = works.filter(w => w.level === '主角').length;
+    row.innerHTML = `
+      <div class="stat">
+        <div class="num">${fmtCount(total)}</div>
+        <div class="label">累计总播放量</div>
+      </div>
+      <div class="stat">
+        <div class="num">${works.length}</div>
+        <div class="label">参演作品数</div>
+      </div>
+      <div class="stat">
+        <div class="num">${leadCount}</div>
+        <div class="label">主角作品数</div>
+      </div>
+    `;
+  }
+
   function render(works, updatedAt) {
     const list = document.getElementById('cardList');
     const emptyHint = document.getElementById('emptyHint');
     list.innerHTML = '';
     emptyHint.style.display = (!works || works.length === 0) ? 'block' : 'none';
+
+    renderStats(works);
 
     const sorted = [...(works || [])].sort((a, b) => (b.playCount || 0) - (a.playCount || 0));
     sorted.forEach((w, idx) => {
@@ -203,13 +313,13 @@
           <div class="left">
             <div class="rank${rank <= 3 ? ' top3' : ''}">${rank}</div>
             ${cover ? `<img class="cover" src="${cover}" alt="${escapeHtml(w.title)}封面" loading="lazy">` : ''}
-            <div>
+            <div style="min-width:0;">
               <div class="title">${escapeHtml(w.title)}</div>
-              <div class="meta"><span class="tag ${tagClass}">${escapeHtml(w.level)}</span>饰 ${escapeHtml(w.role)}</div>
+              <div class="meta"><span class="tag ${tagClass}">${escapeHtml(w.level)}</span><span>饰 ${escapeHtml(w.role)}</span></div>
             </div>
           </div>
-          <div>
-            <div class="play-count">${fmtCount(w.playCount)}</div>
+          <div class="right">
+            <div class="play-count">${fmtCount(w.playCount)}<span class="arrow">›</span></div>
             <div class="updated">截至 ${escapeHtml(w.updated || '--')}</div>
           </div>
         </div>

@@ -99,6 +99,24 @@
   .card .play-count { font-size: 20px; font-weight: 700; color: #0071e3; white-space: nowrap; text-align: right; }
   .card .updated { font-size: 12px; color: #aeaeb2; margin-top: 6px; text-align: right; }
 
+  .list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 14px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    color: #8e8e93;
+    font-weight: 600;
+  }
+  .list-header .lh-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .list-header .lh-rank { width: 24px; text-align: center; }
+  .list-header .lh-cover { width: 56px; text-align: left; }
+
   .empty-hint, .error-hint { text-align: center; color: #aeaeb2; font-size: 13px; margin-top: 30px; }
   .footer-note { text-align: center; color: #aeaeb2; font-size: 12px; margin-top: 24px; }
 </style>
@@ -111,6 +129,15 @@
     </div>
     <div class="subtitle">数据来自喜马拉雅，每日自动更新一次</div>
     <div class="status-line" id="statusLine">加载中…</div>
+
+    <div class="list-header">
+      <div class="lh-left">
+        <span class="lh-rank">排名</span>
+        <span class="lh-cover">封面</span>
+        <span>作品名 / 角色</span>
+      </div>
+      <div>播放量</div>
+    </div>
 
     <div id="cardList"></div>
     <div class="empty-hint" id="emptyHint" style="display:none;">暂无数据</div>

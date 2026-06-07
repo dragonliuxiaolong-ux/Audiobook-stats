@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的有声书播放量</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+    background: #f5f5f7;
+    color: #1d1d1f;
+    padding: 20px 14px 60px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  h1 { font-size: 21px; margin-bottom: 4px; }
+  .subtitle { color: #6e6e73; font-size: 13px; margin-bottom: 16px; }
+  .status-line { font-size: 12px; color: #8e8e93; margin-bottom: 14px; min-height: 16px; }
+
+  .card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  .card .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .card .title { font-size: 16px; font-weight: 600; line-height: 1.4; }
+  .card .meta { font-size: 13px; color: #6e6e73; margin-top: 4px; }
+  .card .tag {
+    display: inline-block;
+    font-size: 12px;
+    color: #0071e3;
+    background: #eaf3fd;
+    border-radius: 6px;
+    padding: 2px 8px;
+    margin-right: 6px;
+  }
+  .card .play-count { font-size: 20px; font-weight: 700; color: #0071e3; white-space: nowrap; text-align: right; }
+  .card .updated { font-size: 12px; color: #aeaeb2; margin-top: 6px; text-align: right; }
+
+  .empty-hint, .error-hint { text-align: center; color: #aeaeb2; font-size: 13px; margin-top: 30px; }
+  .footer-note { text-align: center; color: #aeaeb2; font-size: 12px; margin-top: 24px; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>我的有声书播放量</h1>
+    <div class="subtitle">数据来自喜马拉雅，每日自动更新一次</div>
+    <div class="status-line" id="statusLine">加载中…</div>
+
+    <div id="cardList"></div>
+    <div class="empty-hint" id="emptyHint" style="display:none;">暂无数据</div>
+    <div class="error-hint" id="errorHint" style="display:none;">数据加载失败，请稍后重试或下拉刷新</div>
+
+    <div class="footer-note">如需新增或删除作品，请联系维护者更新</div>
+  </div>
+
+<script>
+  // 数据文件托管在同一个仓库里，通过 raw.githubusercontent.com 读取（支持跨域），
+  // 每天由自动化任务更新这个文件的内容。
+  const DATA_URL = 'https://raw.githubusercontent.com/dragonliuxiaolong-ux/Audiobook-stats/main/data.json?_=' + Date.now();
+
+  function fmtCount(n) {
+    if (n === null || n === undefined || isNaN(n)) return '--';
+    if (n >= 100000000) return (n / 100000000).toFixed(1) + '亿';
+    return Math.round(n / 10000) + '万';
+  }
+
+  function escapeHtml(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[c]));
+  }
+
+  function render(works, updatedAt) {
+    const list = document.getElementById('cardList');
+    const emptyHint = document.getElementById('emptyHint');
+    list.innerHTML = '';
+    emptyHint.style.display = (!works || works.length === 0) ? 'block' : 'none';
+
+    const sorted = [...(works || [])].sort((a, b) => (b.playCount || 0) - (a.playCount || 0));
+    sorted.forEach(w => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <div class="top-row">
+          <div>
+            <div class="title">${escapeHtml(w.title)}</div>
+            <div class="meta"><span class="tag">${escapeHtml(w.level)}</span>饰 ${escapeHtml(w.role)}</div>
+          </div>
+          <div>
+            <div class="play-count">${fmtCount(w.playCount)}</div>
+            <div class="updated">截至 ${escapeHtml(w.updated || '--')}</div>
+          </div>
+        </div>
+      `;
+      list.appendChild(card);
+    });
+
+    document.getElementById('statusLine').textContent = updatedAt ? `数据更新于 ${updatedAt}` : '';
+  }
+
+  async function load() {
+    try {
+      const res = await fetch(DATA_URL, { cache: 'no-store' });
+      if (!res.ok) throw new Error('http ' + res.status);
+      const data = await res.json();
+      render(data.works, data.updatedAt);
+      document.getElementById('errorHint').style.display = 'none';
+    } catch (e) {
+      document.getElementById('errorHint').style.display = 'block';
+      document.getElementById('statusLine').textContent = '';
+    }
+  }
+
+  load();
+</script>
+</body>
+</html>

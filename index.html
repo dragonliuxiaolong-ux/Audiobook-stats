@@ -70,22 +70,6 @@
   .subtitle { color: var(--muted); font-size: 13px; margin-top: 8px; line-height: 1.6; }
 
   /* ---------- Stats ---------- */
-  .stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-bottom: 26px;
-  }
-  .stat {
-    background: var(--card);
-    border-radius: 16px;
-    padding: 16px 12px;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(120, 90, 50, 0.07);
-  }
-  .stat .num { font-size: 22px; font-weight: 800; color: var(--accent); letter-spacing: 0.5px; }
-  .stat .label { font-size: 12px; color: var(--muted); margin-top: 4px; }
-
   .status-line { font-size: 12px; color: var(--muted); margin-bottom: 14px; min-height: 16px; }
 
   .section-title {
@@ -213,7 +197,6 @@
   </div>
 
   <div class="wrap">
-    <div class="stats" id="statsRow"></div>
     <div class="status-line" id="statusLine">加载中…</div>
 
     <div class="section-title">参演作品一览</div>
@@ -269,34 +252,11 @@
     }[c]));
   }
 
-  function renderStats(works) {
-    const row = document.getElementById('statsRow');
-    if (!works || works.length === 0) { row.innerHTML = ''; return; }
-    const total = works.reduce((s, w) => s + (w.playCount || 0), 0);
-    const leadCount = works.filter(w => w.level === '主角').length;
-    row.innerHTML = `
-      <div class="stat">
-        <div class="num">${fmtCount(total)}</div>
-        <div class="label">累计总播放量</div>
-      </div>
-      <div class="stat">
-        <div class="num">${works.length}</div>
-        <div class="label">参演作品数</div>
-      </div>
-      <div class="stat">
-        <div class="num">${leadCount}</div>
-        <div class="label">主角作品数</div>
-      </div>
-    `;
-  }
-
   function render(works, updatedAt) {
     const list = document.getElementById('cardList');
     const emptyHint = document.getElementById('emptyHint');
     list.innerHTML = '';
     emptyHint.style.display = (!works || works.length === 0) ? 'block' : 'none';
-
-    renderStats(works);
 
     const sorted = [...(works || [])].sort((a, b) => (b.playCount || 0) - (a.playCount || 0));
     sorted.forEach((w, idx) => {

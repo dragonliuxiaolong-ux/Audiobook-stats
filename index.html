@@ -253,13 +253,19 @@
     }[c]));
   }
 
+  // 仅展示播放量达到千万级别的作品；未达标的作品会自动隐藏，
+  // 等数据更新后播放量过千万会自动出现，无需手动维护
+  const MIN_PLAY_COUNT = 10000000;
+
   function render(works, updatedAt) {
     const list = document.getElementById('cardList');
     const emptyHint = document.getElementById('emptyHint');
     list.innerHTML = '';
-    emptyHint.style.display = (!works || works.length === 0) ? 'block' : 'none';
 
-    const sorted = [...(works || [])].sort((a, b) => (b.playCount || 0) - (a.playCount || 0));
+    const visible = (works || []).filter(w => (w.playCount || 0) >= MIN_PLAY_COUNT);
+    emptyHint.style.display = (visible.length === 0) ? 'block' : 'none';
+
+    const sorted = [...visible].sort((a, b) => (b.playCount || 0) - (a.playCount || 0));
     sorted.forEach((w, idx) => {
       const rank = idx + 1;
       const card = document.createElement('a');

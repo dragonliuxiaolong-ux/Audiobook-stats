@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CV小蛟龙部分参演有声书作品播放量</title>
+<title>CV小蛟龙的配音简历</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
 <style>
   :root {
     color-scheme: light;
@@ -67,6 +69,14 @@
     line-height: 1.4;
     letter-spacing: 0.5px;
   }
+  .brand-name {
+    font-family: 'Ma Shan Zheng', 'PingFang SC', cursive;
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--accent);
+    letter-spacing: 2px;
+    margin-right: 2px;
+  }
   .subtitle { color: var(--muted); font-size: 13px; margin-top: 8px; line-height: 1.6; }
 
   /* ---------- Stats ---------- */
@@ -87,6 +97,13 @@
     height: 16px;
     border-radius: 3px;
     background: var(--accent);
+  }
+
+  .list-note {
+    font-size: 12px;
+    color: var(--muted);
+    margin: -4px 0 14px;
+    padding: 0 2px;
   }
 
   /* ---------- List header ---------- */
@@ -199,6 +216,8 @@
     padding: 4px 13px;
   }
   .bio-text { font-size: 14px; line-height: 1.85; color: #5a5046; }
+  .bio-text + .bio-text { margin-top: 10px; }
+  .bio-card .bio-stats + .bio-text { margin-top: 4px; }
   .bio-stats {
     display: flex;
     gap: 22px;
@@ -233,14 +252,15 @@
     <div class="hero-inner">
       <img class="avatar" src="avatar.jpg" alt="CV小蛟龙头像">
       <div class="hero-text">
-        <span class="eyebrow">Voice Actor · 有声书演播</span>
-        <h1>CV小蛟龙部分参演有声书作品播放量</h1>
-        <div class="subtitle">数据来自喜马拉雅，每日自动更新一次 · 点击作品卡片可直达喜马拉雅播放页</div>
+        <span class="eyebrow">Voice Actor</span>
+        <h1><span class="brand-name">CV小蛟龙</span>的配音简历</h1>
+        <div class="subtitle">用声音演绎角色，让故事被听见</div>
       </div>
     </div>
   </div>
 
   <div class="wrap">
+    <div class="section-title">个人简介</div>
     <div class="bio-card">
       <div class="bio-tags">
         <span class="bio-tag">男声</span>
@@ -251,13 +271,24 @@
       <p class="bio-text">
         圈名 CV小蛟龙，男声配音演员，本音为青年音，音色可塑性强、全声线覆盖，
         擅长短剧、漫剧、动漫、广播剧、有声剧、游戏配音等多种类型的角色演绎。
-        从业 4 年以来累计参与 150 余部有声剧作品配音，其中播放量破千万的作品 15 部、破亿的作品 2 部。
+      </p>
+      <p class="bio-text">
+        主业方向是有声书演播：从业 4 年以来累计参与 150 余部有声剧作品配音，
+        其中播放量破千万的作品 15 部、破亿的作品 2 部。
       </p>
       <div class="bio-stats">
         <div class="item"><div class="num">150+</div><div class="label">参演有声剧作品</div></div>
         <div class="item"><div class="num">15</div><div class="label">播放量破千万</div></div>
         <div class="item"><div class="num">2</div><div class="label">播放量破亿</div></div>
       </div>
+      <p class="bio-text">
+        除有声书外也涉猎多种配音类型：动漫《憨豆先生》中文版、《咖宝车神之超能救援队》，
+        漫剧《神级灵兽》《神战华夏》，游戏《新三国》等多部作品。
+      </p>
+    </div>
+
+    <div class="section-title">声音展示</div>
+    <div class="bio-card">
       <div class="demo-box">
         <div class="demo-label">🎧 个人声音展示 · CV小蛟龙的声展2024</div>
         <audio controls preload="none" src="voice_demo.mp3">您的浏览器不支持音频播放，可点击下载试听。</audio>
@@ -267,6 +298,7 @@
     <div class="status-line" id="statusLine">加载中…</div>
 
     <div class="section-title">部分参演作品一览</div>
+    <div class="list-note">数据来自喜马拉雅，每日自动更新一次 · 点击作品卡片可直达喜马拉雅播放页</div>
     <div class="list-header">
       <div class="lh-left">
         <span class="lh-rank">排名</span>

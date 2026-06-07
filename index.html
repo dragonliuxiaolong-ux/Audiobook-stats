@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>我的有声书播放量</title>
+<title>CV小蛟龙部分参演有声书作品播放量</title>
 <style>
   :root { color-scheme: light; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -14,16 +14,39 @@
     padding: 20px 14px 60px;
   }
   .wrap { max-width: 720px; margin: 0 auto; }
-  h1 { font-size: 21px; margin-bottom: 4px; }
-  .subtitle { color: #6e6e73; font-size: 13px; margin-bottom: 16px; }
+
+  .header-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 4px;
+  }
+  .avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.12);
+  }
+  h1 { font-size: 20px; line-height: 1.35; }
+  .subtitle { color: #6e6e73; font-size: 13px; margin: 8px 0 16px; }
   .status-line { font-size: 12px; color: #8e8e93; margin-bottom: 14px; min-height: 16px; }
 
   .card {
     background: #fff;
     border-radius: 14px;
     box-shadow: 0 1px 6px rgba(0,0,0,0.06);
-    padding: 16px;
+    padding: 14px;
     margin-bottom: 12px;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+  }
+  .card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
   }
   .card .top-row {
     display: flex;
@@ -31,16 +54,47 @@
     align-items: flex-start;
     gap: 10px;
   }
+  .card .left {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    min-width: 0;
+  }
+  .rank {
+    width: 24px;
+    flex-shrink: 0;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: #aeaeb2;
+    padding-top: 4px;
+  }
+  .rank.top3 { color: #d23b6b; }
+  .cover {
+    width: 56px;
+    height: 56px;
+    border-radius: 10px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: #eee;
+  }
   .card .title { font-size: 16px; font-weight: 600; line-height: 1.4; }
   .card .meta { font-size: 13px; color: #6e6e73; margin-top: 4px; }
   .card .tag {
     display: inline-block;
     font-size: 12px;
-    color: #0071e3;
-    background: #eaf3fd;
     border-radius: 6px;
     padding: 2px 8px;
     margin-right: 6px;
+    font-weight: 500;
+  }
+  .card .tag.lead {
+    color: #d23b6b;
+    background: #fde8f0;
+  }
+  .card .tag.support {
+    color: #0071e3;
+    background: #eaf3fd;
   }
   .card .play-count { font-size: 20px; font-weight: 700; color: #0071e3; white-space: nowrap; text-align: right; }
   .card .updated { font-size: 12px; color: #aeaeb2; margin-top: 6px; text-align: right; }
@@ -51,7 +105,10 @@
 </head>
 <body>
   <div class="wrap">
-    <h1>我的有声书播放量</h1>
+    <div class="header-row">
+      <img class="avatar" src="avatar.jpg" alt="CV小蛟龙头像">
+      <h1>CV小蛟龙部分参演有声书作品播放量</h1>
+    </div>
     <div class="subtitle">数据来自喜马拉雅，每日自动更新一次</div>
     <div class="status-line" id="statusLine">加载中…</div>
 
@@ -66,6 +123,25 @@
   // 数据文件托管在同一个仓库里，通过 raw.githubusercontent.com 读取（支持跨域），
   // 每天由自动化任务更新这个文件的内容。
   const DATA_URL = 'https://raw.githubusercontent.com/dragonliuxiaolong-ux/Audiobook-stats/main/data.json?_=' + Date.now();
+
+  // 专辑封面图（喜马拉雅 CDN），按作品 id 映射
+  const COVERS = {
+    85777813: 'https://imagev2.xmcdn.com/storages/5c13-audiofreehighqps/8D/68/GKwRIRwNGp3_AA_bOARJ5ob1.jpg',
+    83553521: 'https://imagev2.xmcdn.com/storages/a241-audiofreehighqps/6F/E5/GAqhexEKzEgrAAZkMQMWXOil.jpeg',
+    78275913: 'https://imagev2.xmcdn.com/storages/6061-audiofreehighqps/1E/C0/GKwRIMAI_xM0AANf3wJr4qb_.jpg',
+    84570614: 'https://imagev2.xmcdn.com/storages/cbdb-audiofreehighqps/B2/46/GAqh_aQNGX2aAAHpdgRJahQ-.jpg',
+    84232681: 'https://imagev2.xmcdn.com/storages/272f-audiofreehighqps/E1/02/GKwRIJILMQKNABAAAAM_nfK0.jpg',
+    87790920: 'https://imagev2.xmcdn.com/storages/e77d-audiofreehighqps/72/EC/GKwRIDoLaRJDAAHf4gNaqN1K.jpg',
+    85174684: 'https://imagev2.xmcdn.com/storages/4397-audiofreehighqps/3F/9F/GKwRIaILUF0OABAAAANNWWnv.jpg',
+    85103587: 'https://imagev2.xmcdn.com/storages/c515-audiofreehighqps/EA/D0/GAqh9sALVP7TAAGcWQNPoFTV.jpg',
+    86999133: 'https://imagev2.xmcdn.com/storages/02c6-audiofreehighqps/38/08/GKwRIUEMkupdABAAAAQKPLHZ.jpg',
+    96829475: 'https://imagev2.xmcdn.com/storages/7922-audiofreehighqps/4B/92/GKwRIaIMguO9AAQL3QQA2i48.jpg',
+    81090583: 'https://imagev2.xmcdn.com/storages/4ecb-audiofreehighqps/3E/F4/GMCoOSEJ1uLTAAN_OQK8xP9W.jpg',
+    88503620: 'https://imagev2.xmcdn.com/storages/133e-audiofreehighqps/30/10/GAqhqKwLqCqaABAAAAN9HYUu.jpg',
+    88303931: 'https://imagev2.xmcdn.com/storages/f539-audiofreehighqps/72/E7/GAqhQ6cLtpk_ABAAAAOEsMRH.jpg',
+    79502649: 'https://imagev2.xmcdn.com/storages/216c-audiofreehighqps/22/EF/GKwRIDoJl1baAAJdkQKlbgeo.jpg',
+    79376713: 'https://imagev2.xmcdn.com/storages/7a80-audiofreehighqps/92/8D/GKwRIUEJ4rFeAAGhrgLBPeyd.jpg'
+  };
 
   function fmtCount(n) {
     if (n === null || n === undefined || isNaN(n)) return '--';
@@ -86,14 +162,24 @@
     emptyHint.style.display = (!works || works.length === 0) ? 'block' : 'none';
 
     const sorted = [...(works || [])].sort((a, b) => (b.playCount || 0) - (a.playCount || 0));
-    sorted.forEach(w => {
-      const card = document.createElement('div');
+    sorted.forEach((w, idx) => {
+      const rank = idx + 1;
+      const card = document.createElement('a');
       card.className = 'card';
+      card.href = `https://www.ximalaya.com/album/${w.id}`;
+      card.target = '_blank';
+      card.rel = 'noopener noreferrer';
+      const tagClass = w.level === '主角' ? 'lead' : 'support';
+      const cover = COVERS[w.id] || '';
       card.innerHTML = `
         <div class="top-row">
-          <div>
-            <div class="title">${escapeHtml(w.title)}</div>
-            <div class="meta"><span class="tag">${escapeHtml(w.level)}</span>饰 ${escapeHtml(w.role)}</div>
+          <div class="left">
+            <div class="rank${rank <= 3 ? ' top3' : ''}">${rank}</div>
+            ${cover ? `<img class="cover" src="${cover}" alt="${escapeHtml(w.title)}封面" loading="lazy">` : ''}
+            <div>
+              <div class="title">${escapeHtml(w.title)}</div>
+              <div class="meta"><span class="tag ${tagClass}">${escapeHtml(w.level)}</span>饰 ${escapeHtml(w.role)}</div>
+            </div>
           </div>
           <div>
             <div class="play-count">${fmtCount(w.playCount)}</div>

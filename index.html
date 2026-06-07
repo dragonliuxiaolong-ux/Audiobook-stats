@@ -68,11 +68,13 @@
     letter-spacing: 0.5px;
   }
   .brand-name {
-    font-weight: 900;
+    display: inline-block;
+    font-family: Georgia, "Songti SC", "STSong", "SimSun", serif;
+    font-size: 34px;
+    font-weight: 700;
     color: var(--accent);
     letter-spacing: 1px;
-    padding: 0 3px;
-    border-bottom: 3px solid var(--accent);
+    margin-bottom: 2px;
   }
   .subtitle { color: var(--muted); font-size: 13px; margin-top: 8px; line-height: 1.6; }
 
@@ -226,14 +228,61 @@
   .bio-stats .label { font-size: 12px; color: var(--muted); margin-top: 2px; }
   .stats-strip {
     display: flex;
-    gap: 22px;
-    flex-wrap: wrap;
-    background: var(--cream);
+    align-items: stretch;
+    gap: 0;
+    background: linear-gradient(135deg, var(--accent-soft), var(--cream));
+    border: 1px solid var(--accent-soft);
     border-radius: 16px;
-    padding: 16px 20px;
+    padding: 18px 8px;
     margin: 4px 0 22px;
+    box-shadow: 0 2px 12px rgba(120, 90, 50, 0.08);
   }
-  .contact-list { display: flex; flex-wrap: wrap; gap: 12px; }
+  .stats-strip .item {
+    flex: 1;
+    text-align: center;
+    padding: 0 8px;
+    position: relative;
+  }
+  .stats-strip .item + .item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    bottom: 6px;
+    width: 1px;
+    background: rgba(201, 138, 75, 0.28);
+  }
+  .stats-strip .num {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1.2;
+  }
+  .stats-strip .label {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  @media (max-width: 420px) {
+    .stats-strip { padding: 14px 4px; }
+    .stats-strip .num { font-size: 20px; }
+    .stats-strip .label { font-size: 11px; }
+  }
+  .contact-wrap {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .contact-qr {
+    width: 96px;
+    height: 96px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 1px solid var(--accent-soft);
+    flex-shrink: 0;
+  }
+  .contact-list { display: flex; flex-direction: column; flex-wrap: wrap; gap: 10px; flex: 1; min-width: 160px; }
   .contact-item {
     display: flex;
     align-items: center;
@@ -280,13 +329,24 @@
       <img class="avatar" src="avatar.jpg" alt="CV小蛟龙头像">
       <div class="hero-text">
         <span class="eyebrow">Voice Actor</span>
-        <h1><span class="brand-name">CV小蛟龙</span>的配音简历</h1>
+        <h1><span class="brand-name">CV小蛟龙</span><br>配音简历</h1>
         <div class="subtitle">用声音演绎角色，让故事被听见</div>
       </div>
     </div>
   </div>
 
   <div class="wrap">
+    <div class="section-title">联系合作</div>
+    <div class="bio-card">
+      <div class="contact-wrap">
+        <img class="contact-qr" src="wechat_qr.jpg" alt="CV小蛟龙微信二维码，扫码添加好友">
+        <div class="contact-list">
+          <div class="contact-item"><span class="contact-label">微信</span><span class="contact-value">扫左侧二维码添加好友</span></div>
+          <div class="contact-item"><span class="contact-label">电话</span><span class="contact-value">182 7028 0045</span></div>
+        </div>
+      </div>
+    </div>
+
     <div class="section-title">个人简介</div>
     <div class="bio-card">
       <div class="bio-tags">
@@ -310,14 +370,6 @@
       <div class="demo-box">
         <div class="demo-label">🎧 个人声音展示 · CV小蛟龙的声展2024</div>
         <audio controls preload="none" src="voice_demo.mp3">您的浏览器不支持音频播放，可点击下载试听。</audio>
-      </div>
-    </div>
-
-    <div class="section-title">联系合作</div>
-    <div class="bio-card">
-      <div class="contact-list">
-        <div class="contact-item"><span class="contact-label">微信</span><span class="contact-value">littledragonisfull</span></div>
-        <div class="contact-item"><span class="contact-label">电话</span><span class="contact-value">182 7028 0045</span></div>
       </div>
     </div>
 

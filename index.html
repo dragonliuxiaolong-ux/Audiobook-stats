@@ -7,539 +7,534 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
 <style>
-  :root {
-    color-scheme: light;
-    --ink: #2b2622;
-    --muted: #8a7f74;
-    --cream: #f7f1e8;
-    --card: #ffffff;
-    --accent: #c98a4b;
-    --accent-soft: #f3e3d0;
-    --lead: #2a9d4a;
-    --lead-bg: #e6f7ea;
-    --support: #2f6fb0;
-    --support-bg: #e7f0fa;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
-    background: linear-gradient(180deg, #faf5ee 0%, #f3eee6 280px, #f3eee6 100%);
-    color: var(--ink);
-    padding: 0 0 60px;
-  }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+:root {
+color-scheme: light;
+--ink: #2b2622;
+--muted: #8a7f74;
+--cream: #f7f1e8;
+--card: #ffffff;
+--accent: #c98a4b;
+--accent-soft: #f3e3d0;
+--lead: #2a9d4a;
+--lead-bg: #e6f7ea;
+--support: #2f6fb0;
+--support-bg: #e7f0fa;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+background: linear-gradient(180deg, #faf5ee 0%, #f3eee6 280px, #f3eee6 100%);
+color: var(--ink);
+padding: 0 0 60px;
+}
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
 
-  /* ---------- Hero ---------- */
-  .hero {
-    background: linear-gradient(135deg, #fbf3e7 0%, #f4e6d4 55%, #efddc8 100%);
-    border-radius: 0 0 28px 28px;
-    padding: 36px 16px 30px;
-    margin-bottom: 28px;
-    box-shadow: 0 6px 24px rgba(180, 140, 90, 0.15);
-  }
-  .hero-inner {
-    max-width: 760px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 22px;
-  }
-  .avatar {
-    width: 92px;
-    height: 92px;
-    border-radius: 50%;
-    object-fit: cover;
-    flex-shrink: 0;
-    border: 3px solid #fff;
-    box-shadow: 0 4px 16px rgba(120, 90, 50, 0.25);
-  }
-  .hero-text { min-width: 0; }
-  .eyebrow {
-    display: inline-block;
-    font-size: 12px;
-    letter-spacing: 1.5px;
-    color: var(--accent);
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-  h1 {
-    font-size: 22px;
-    font-weight: 800;
-    line-height: 1.4;
-    letter-spacing: 0.5px;
-  }
-  .brand-name {
-    display: inline-block;
-    font-family: 'ZCOOL XiaoWei', "Songti SC", "STSong", serif;
-    font-size: 38px;
-    font-weight: 400;
-    color: var(--accent);
-    letter-spacing: 2px;
-    margin-bottom: 2px;
-  }
-  .subtitle { color: var(--muted); font-size: 13px; margin-top: 8px; line-height: 1.6; }
+/* ---------- Hero ---------- */
+.hero {
+background: linear-gradient(135deg, #fbf3e7 0%, #f4e6d4 55%, #efddc8 100%);
+border-radius: 0 0 28px 28px;
+padding: 36px 16px 30px;
+margin-bottom: 28px;
+box-shadow: 0 6px 24px rgba(180, 140, 90, 0.15);
+}
+.hero-inner {
+max-width: 760px;
+margin: 0 auto;
+display: flex;
+align-items: center;
+gap: 22px;
+}
+.avatar {
+width: 92px;
+height: 92px;
+border-radius: 50%;
+object-fit: cover;
+flex-shrink: 0;
+border: 3px solid #fff;
+box-shadow: 0 4px 16px rgba(120, 90, 50, 0.25);
+}
+.hero-text { min-width: 0; }
+.eyebrow {
+display: inline-block;
+font-size: 12px;
+letter-spacing: 1.5px;
+color: var(--accent);
+font-weight: 700;
+text-transform: uppercase;
+margin-bottom: 6px;
+}
+h1 {
+font-size: 22px;
+font-weight: 800;
+line-height: 1.4;
+letter-spacing: 0.5px;
+}
+.brand-name {
+display: inline-block;
+font-family: 'ZCOOL XiaoWei', "Songti SC", "STSong", serif;
+font-size: 38px;
+font-weight: 400;
+color: var(--accent);
+letter-spacing: 2px;
+margin-bottom: 2px;
+}
+.subtitle { color: var(--muted); font-size: 13px; margin-top: 8px; line-height: 1.6; }
 
-  /* ---------- Stats ---------- */
-  .status-line { font-size: 12px; color: var(--muted); margin-bottom: 14px; min-height: 16px; }
+/* ---------- Stats ---------- */
+.status-line { font-size: 12px; color: var(--muted); margin-bottom: 14px; min-height: 16px; }
 
-  .section-title {
-    font-size: 16px;
-    font-weight: 800;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .section-title::before {
-    content: "";
-    display: inline-block;
-    width: 5px;
-    height: 16px;
-    border-radius: 3px;
-    background: var(--accent);
-  }
+.section-title {
+font-size: 16px;
+font-weight: 800;
+margin-bottom: 12px;
+display: flex;
+align-items: center;
+gap: 8px;
+}
+.section-title::before {
+content: "";
+display: inline-block;
+width: 5px;
+height: 16px;
+border-radius: 3px;
+background: var(--accent);
+}
 
-  .list-note {
-    font-size: 12px;
-    color: var(--muted);
-    margin: -4px 0 14px;
-    padding: 0 2px;
-  }
+.list-note {
+font-size: 12px;
+color: var(--muted);
+margin: -4px 0 14px;
+padding: 0 2px;
+}
 
-  /* ---------- List header ---------- */
-  .list-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 16px;
-    margin-bottom: 8px;
-    font-size: 12px;
-    color: var(--muted);
-    font-weight: 600;
-    letter-spacing: 0.5px;
-  }
-  .list-header .lh-left {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-  .list-header .lh-rank { width: 26px; text-align: center; }
-  .list-header .lh-cover { width: 60px; text-align: center; }
+/* ---------- List header ---------- */
+.list-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0 16px;
+margin-bottom: 8px;
+font-size: 12px;
+color: var(--muted);
+font-weight: 600;
+letter-spacing: 0.5px;
+}
+.list-header .lh-left {
+display: flex;
+align-items: center;
+gap: 14px;
+}
+.list-header .lh-rank { width: 26px; text-align: center; }
+.list-header .lh-cover { width: 60px; text-align: center; }
 
-  /* ---------- Card ---------- */
-  .card {
-    background: var(--card);
-    border-radius: 16px;
-    box-shadow: 0 2px 10px rgba(120, 90, 50, 0.07);
-    padding: 14px 16px;
-    margin-bottom: 12px;
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    border: 1px solid transparent;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-  }
-  .card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 26px rgba(120, 90, 50, 0.16);
-    border-color: var(--accent-soft);
-  }
-  .card .top-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-  }
-  .card .left {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    min-width: 0;
-  }
-  .rank {
-    width: 26px;
-    flex-shrink: 0;
-    text-align: center;
-    font-size: 16px;
-    font-weight: 800;
-    color: #c9bfb2;
-  }
-  .rank.top3 { color: var(--accent); font-size: 18px; }
-  .cover {
-    width: 60px;
-    height: 60px;
-    border-radius: 12px;
-    object-fit: cover;
-    flex-shrink: 0;
-    background: var(--cream);
-    box-shadow: 0 2px 8px rgba(120, 90, 50, 0.12);
-  }
-  .card .title {
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1.4;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .card .meta { font-size: 13px; color: var(--muted); margin-top: 5px; display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
-  .card .tag {
-    display: inline-block;
-    font-size: 12px;
-    border-radius: 6px;
-    padding: 2px 9px;
-    font-weight: 600;
-  }
-  .card .tag.lead { color: var(--lead); background: var(--lead-bg); }
-  .card .tag.support { color: var(--support); background: var(--support-bg); }
-  .card .right { text-align: right; flex-shrink: 0; }
-  .card .play-count { font-size: 19px; font-weight: 800; color: var(--accent); white-space: nowrap; }
-  .card .updated { font-size: 11px; color: #c9bfb2; margin-top: 4px; white-space: nowrap; }
-  .card .arrow { font-size: 13px; color: #c9bfb2; margin-left: 4px; }
+/* ---------- Card ---------- */
+.card {
+background: var(--card);
+border-radius: 16px;
+box-shadow: 0 2px 10px rgba(120, 90, 50, 0.07);
+padding: 14px 16px;
+margin-bottom: 12px;
+text-decoration: none;
+color: inherit;
+display: block;
+border: 1px solid transparent;
+transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.card:hover {
+transform: translateY(-2px);
+box-shadow: 0 10px 26px rgba(120, 90, 50, 0.16);
+border-color: var(--accent-soft);
+}
+.card .top-row {
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 12px;
+}
+.card .left {
+display: flex;
+align-items: center;
+gap: 14px;
+min-width: 0;
+}
+.rank {
+width: 26px;
+flex-shrink: 0;
+text-align: center;
+font-size: 16px;
+font-weight: 800;
+color: #c9bfb2;
+}
+.rank.top3 { color: var(--accent); font-size: 18px; }
+.cover {
+width: 60px;
+height: 60px;
+border-radius: 12px;
+object-fit: cover;
+flex-shrink: 0;
+background: var(--cream);
+box-shadow: 0 2px 8px rgba(120, 90, 50, 0.12);
+}
+.card .title {
+font-size: 16px;
+font-weight: 700;
+line-height: 1.4;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+.card .meta { font-size: 13px; color: var(--muted); margin-top: 5px; display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+.card .tag {
+display: inline-block;
+font-size: 12px;
+border-radius: 6px;
+padding: 2px 9px;
+font-weight: 600;
+}
+.card .tag.lead { color: var(--lead); background: var(--lead-bg); }
+.card .tag.support { color: var(--support); background: var(--support-bg); }
+.card .right { text-align: right; flex-shrink: 0; }
+.card .play-count { font-size: 19px; font-weight: 800; color: var(--accent); white-space: nowrap; }
+.card .updated { font-size: 11px; color: #c9bfb2; margin-top: 4px; white-space: nowrap; }
+.card .arrow { font-size: 13px; color: #c9bfb2; margin-left: 4px; }
 
-  /* ---------- Bio / intro ---------- */
-  .bio-card {
-    background: var(--card);
-    border-radius: 18px;
-    padding: 20px 20px 18px;
-    margin-bottom: 26px;
-    box-shadow: 0 2px 12px rgba(120, 90, 50, 0.08);
-  }
-  .bio-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-  .bio-tag {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--accent);
-    background: var(--accent-soft);
-    border-radius: 999px;
-    padding: 4px 13px;
-  }
-  .bio-text { font-size: 14px; line-height: 1.85; color: #5a5046; }
-  .bio-text + .bio-text { margin-top: 10px; }
-  .bio-card .bio-stats + .bio-text { margin-top: 4px; }
-  .bio-stats {
-    display: flex;
-    gap: 22px;
-    margin: 16px 0 18px;
-    flex-wrap: wrap;
-  }
-  .bio-stats .item { text-align: left; }
-  .bio-stats .num { font-size: 20px; font-weight: 800; color: var(--accent); }
-  .bio-stats .label { font-size: 12px; color: var(--muted); margin-top: 2px; }
-  .stats-strip {
-    display: flex;
-    align-items: stretch;
-    gap: 0;
-    background: linear-gradient(135deg, var(--accent-soft), var(--cream));
-    border: 1px solid var(--accent-soft);
-    border-radius: 16px;
-    padding: 18px 8px;
-    margin: 4px 0 22px;
-    box-shadow: 0 2px 12px rgba(120, 90, 50, 0.08);
-  }
-  .stats-strip .item {
-    flex: 1;
-    text-align: center;
-    padding: 0 8px;
-    position: relative;
-  }
-  .stats-strip .item + .item::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 6px;
-    bottom: 6px;
-    width: 1px;
-    background: rgba(201, 138, 75, 0.28);
-  }
-  .stats-strip .num {
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--accent);
-    line-height: 1.2;
-  }
-  .stats-strip .label {
-    font-size: 12px;
-    color: var(--muted);
-    margin-top: 4px;
-  }
-  @media (max-width: 420px) {
-    .stats-strip { padding: 14px 4px; }
-    .stats-strip .num { font-size: 20px; }
-    .stats-strip .label { font-size: 11px; }
-  }
-  .contact-wrap {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    flex-wrap: wrap;
-  }
-  .contact-qr {
-    width: 108px;
-    height: 108px;
-    border-radius: 10px;
-    object-fit: contain;
-    background: #fff;
-    border: 1px solid var(--accent-soft);
-    padding: 4px;
-    flex-shrink: 0;
-  }
-  .contact-list { display: flex; flex-direction: column; flex-wrap: wrap; gap: 10px; flex: 1; min-width: 160px; }
-  .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--cream);
-    border-radius: 12px;
-    padding: 10px 16px;
-    font-size: 14px;
-    color: #5a5046;
-  }
-  .contact-label {
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--accent);
-    background: var(--accent-soft);
-    border-radius: 999px;
-    padding: 3px 11px;
-    flex-shrink: 0;
-  }
-  .contact-value { font-weight: 600; letter-spacing: 0.5px; }
-  .cover-marquee {
-    overflow: hidden;
-    margin: -6px 0 26px;
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-            mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-  }
-  .marquee-track {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    width: max-content;
-    animation: marquee-scroll 38s linear infinite;
-  }
-  .cover-marquee:hover .marquee-track { animation-play-state: paused; }
-  .marquee-track img {
-    width: 88px;
-    height: 88px;
-    border-radius: 14px;
-    object-fit: cover;
-    flex-shrink: 0;
-    background: var(--cream);
-    box-shadow: 0 4px 14px rgba(120, 90, 50, 0.15);
-  }
-  @keyframes marquee-scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-  .demo-box {
-    background: var(--cream);
-    border-radius: 14px;
-    padding: 14px 16px;
-  }
-  .demo-label {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--ink);
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .demo-box audio { width: 100%; display: block; }
+/* ---------- Bio / intro ---------- */
+.bio-card {
+background: var(--card);
+border-radius: 18px;
+padding: 20px 20px 18px;
+margin-bottom: 26px;
+box-shadow: 0 2px 12px rgba(120, 90, 50, 0.08);
+}
+.bio-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.bio-tag {
+display: inline-block;
+font-size: 12px;
+font-weight: 700;
+color: var(--accent);
+background: var(--accent-soft);
+border-radius: 999px;
+padding: 4px 13px;
+}
+.bio-text { font-size: 14px; line-height: 1.85; color: #5a5046; }
+.bio-text + .bio-text { margin-top: 10px; }
+.bio-card .bio-stats + .bio-text { margin-top: 4px; }
+.bio-stats {
+display: flex;
+gap: 22px;
+margin: 16px 0 18px;
+flex-wrap: wrap;
+}
+.bio-stats .item { text-align: left; }
+.bio-stats .num { font-size: 20px; font-weight: 800; color: var(--accent); }
+.bio-stats .label { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.stats-strip {
+display: flex;
+align-items: stretch;
+gap: 0;
+background: linear-gradient(135deg, var(--accent-soft), var(--cream));
+border: 1px solid var(--accent-soft);
+border-radius: 16px;
+padding: 18px 8px;
+margin: 4px 0 22px;
+box-shadow: 0 2px 12px rgba(120, 90, 50, 0.08);
+}
+.stats-strip .item {
+flex: 1;
+text-align: center;
+padding: 0 8px;
+position: relative;
+}
+.stats-strip .item + .item::before {
+content: "";
+position: absolute;
+left: 0;
+top: 6px;
+bottom: 6px;
+width: 1px;
+background: rgba(201, 138, 75, 0.28);
+}
+.stats-strip .num {
+font-size: 24px;
+font-weight: 800;
+color: var(--accent);
+line-height: 1.2;
+}
+.stats-strip .label {
+font-size: 12px;
+color: var(--muted);
+margin-top: 4px;
+}
+@media (max-width: 420px) {
+.stats-strip { padding: 14px 4px; }
+.stats-strip .num { font-size: 20px; }
+.stats-strip .label { font-size: 11px; }
+}
+.contact-wrap {
+display: flex;
+align-items: center;
+gap: 18px;
+flex-wrap: wrap;
+}
+.contact-qr {
+width: 108px;
+height: 108px;
+border-radius: 10px;
+object-fit: contain;
+background: #fff;
+border: 1px solid var(--accent-soft);
+padding: 4px;
+flex-shrink: 0;
+}
+.contact-list { display: flex; flex-direction: column; flex-wrap: wrap; gap: 10px; flex: 1; min-width: 160px; }
+.contact-item {
+display: flex;
+align-items: center;
+gap: 10px;
+background: var(--cream);
+border-radius: 12px;
+padding: 10px 16px;
+font-size: 14px;
+color: #5a5046;
+}
+.contact-label {
+font-size: 12px;
+font-weight: 700;
+color: var(--accent);
+background: var(--accent-soft);
+border-radius: 999px;
+padding: 3px 11px;
+flex-shrink: 0;
+}
+.contact-value { font-weight: 600; letter-spacing: 0.5px; }
+.cover-marquee {
+overflow: hidden;
+margin: -6px 0 26px;
+-webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.marquee-track {
+display: flex;
+align-items: center;
+gap: 14px;
+width: max-content;
+animation: marquee-scroll 38s linear infinite;
+}
+.cover-marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-track img {
+width: 88px;
+height: 88px;
+border-radius: 14px;
+object-fit: cover;
+flex-shrink: 0;
+background: var(--cream);
+box-shadow: 0 4px 14px rgba(120, 90, 50, 0.15);
+}
+@keyframes marquee-scroll {
+from { transform: translateX(0); }
+to { transform: translateX(-50%); }
+}
+.demo-box {
+background: var(--cream);
+border-radius: 14px;
+padding: 14px 16px;
+}
+.demo-label {
+font-size: 13px;
+font-weight: 700;
+color: var(--ink);
+margin-bottom: 10px;
+display: flex;
+align-items: center;
+gap: 6px;
+}
+.demo-box audio { width: 100%; display: block; }
 
-  .empty-hint, .error-hint { text-align: center; color: var(--muted); font-size: 13px; margin-top: 30px; }
-  .footer-note { text-align: center; color: #c9bfb2; font-size: 12px; margin-top: 28px; line-height: 1.7; }
+.empty-hint, .error-hint { text-align: center; color: var(--muted); font-size: 13px; margin-top: 30px; }
+.footer-note { text-align: center; color: #c9bfb2; font-size: 12px; margin-top: 28px; line-height: 1.7; }
 </style>
 </head>
 <body>
-  <div class="hero">
-    <div class="hero-inner">
-      <img class="avatar" src="avatar.jpg" alt="CV小蛟龙头像">
-      <div class="hero-text">
-        <span class="eyebrow">Voice Actor</span>
-        <h1><span class="brand-name">CV小蛟龙</span><br>配音简历</h1>
-        <div class="subtitle">用声音演绎角色，让故事被听见</div>
-      </div>
-    </div>
-  </div>
+<div class="hero">
+<div class="hero-inner">
+<img class="avatar" src="avatar.jpg" alt="CV小蛟龙头像">
+<div class="hero-text">
+<span class="eyebrow">Voice Actor</span>
+<h1><span class="brand-name">CV小蛟龙</span><br>配音简历</h1>
+<div class="subtitle">用声音演绎角色，让故事被听见</div>
+</div>
+</div>
+</div>
 
-  <div class="wrap">
-    <div class="section-title">联系合作</div>
-    <div class="bio-card">
-      <div class="contact-wrap">
-        <img class="contact-qr" src="wechat_qr.jpg" alt="CV小蛟龙微信二维码，扫码添加好友">
-        <div class="contact-list">
-          <div class="contact-item"><span class="contact-label">微信</span><span class="contact-value">扫左侧二维码添加好友</span></div>
-          <div class="contact-item"><span class="contact-label">电话</span><span class="contact-value">182 7028 0045</span></div>
-        </div>
-      </div>
-    </div>
+<div class="wrap">
+<div class="section-title">联系合作</div>
+<div class="bio-card">
+<div class="contact-wrap">
+<img class="contact-qr" src="wechat_qr.jpg" alt="CV小蛟龙微信二维码，扫码添加好友">
+<div class="contact-list">
+<div class="contact-item"><span class="contact-label">微信</span><span class="contact-value">扫左侧二维码添加好友</span></div>
+<div class="contact-item"><span class="contact-label">电话</span><span class="contact-value">182 7028 0045</span></div>
+</div>
+</div>
+</div>
 
-    <div class="section-title">个人简介</div>
-    <div class="bio-card">
-      <div class="bio-tags">
-        <span class="bio-tag">男声</span>
-        <span class="bio-tag">本音青年音</span>
-        <span class="bio-tag">全声线</span>
-        <span class="bio-tag">从业 4 年</span>
-      </div>
-      <p class="bio-text">
-        圈名 CV小蛟龙，男声配音演员，本音为青年音，音色可塑性强、全声线覆盖，
-        从业 4 年以来，擅长短剧、漫剧、动漫、广播剧、有声剧、游戏配音等多种类型的角色演绎。
-      </p>
-      <p class="bio-text">
-        参与的动漫作品有《憨豆先生》中文版、《咖宝车神之超能救援队》，
-        漫剧作品有《神级灵兽》《神战华夏》，游戏配音作品有《新三国》等多部作品。
-      </p>
-    </div>
+<div class="section-title">个人简介</div>
+<div class="bio-card">
+<div class="bio-tags">
+<span class="bio-tag">男声</span>
+<span class="bio-tag">本音青年音</span>
+<span class="bio-tag">全声线</span>
+<span class="bio-tag">从业 4 年</span>
+</div>
+<p class="bio-text">
+圈名 CV小蛟龙，男声配音演员，本音为青年音，音色可塑性强、全声线覆盖，
+从业 4 年以来，擅长短剧、漫剧、动漫、广播剧、有声剧、游戏配音等多种类型的角色演绎。
+</p>
+<p class="bio-text">
+参与的动漫作品有《憨豆先生》中文版、《咖宝车神之超能救援队》，
+漫剧作品有《神级灵兽》《神战华夏》，游戏配音作品有《新三国》等多部作品。
+</p>
+</div>
 
-    <div class="cover-marquee">
-      <div class="marquee-track" id="marqueeTrack"></div>
-    </div>
+<div class="cover-marquee">
+<div class="marquee-track" id="marqueeTrack"></div>
+</div>
 
-    <div class="section-title">声音展示</div>
-    <div class="bio-card">
-      <div class="demo-box">
-        <div class="demo-label">🎧 个人声音展示 · CV小蛟龙的声展2024</div>
-        <audio controls preload="none" src="voice_demo.mp3">您的浏览器不支持音频播放，可点击下载试听。</audio>
-      </div>
-    </div>
+<div class="section-title">声音展示</div>
+<div class="bio-card">
+<div class="demo-box">
+<div class="demo-label">🎧 个人声音展示 · CV小蛟龙的声展2024</div>
+<audio controls preload="none" src="voice_demo.mp3">您的浏览器不支持音频播放，可点击下载试听。</audio>
+</div>
+</div>
 
-    <div class="status-line" id="statusLine">加载中…</div>
+<div class="status-line" id="statusLine">加载中…</div>
 
-    <div class="stats-strip">
-      <div class="item"><div class="num">150+</div><div class="label">参演有声剧作品</div></div>
-      <div class="item"><div class="num">15</div><div class="label">播放量破千万</div></div>
-      <div class="item"><div class="num">2</div><div class="label">播放量破亿</div></div>
-    </div>
+<div class="stats-strip">
+<div class="item"><div class="num">150+</div><div class="label">参演有声剧作品</div></div>
+<div class="item"><div class="num">16</div><div class="label">播放量破千万</div></div>
+<div class="item"><div class="num">2</div><div class="label">播放量破亿</div></div>
+</div>
 
-    <div class="section-title">部分参演作品一览</div>
-    <div class="list-note">数据来自喜马拉雅，每日自动更新一次 · 点击作品卡片可直达喜马拉雅播放页</div>
-    <div class="list-header">
-      <div class="lh-left">
-        <span class="lh-rank">排名</span>
-        <span class="lh-cover">封面</span>
-        <span>作品名 / 角色</span>
-      </div>
-      <div>播放量</div>
-    </div>
+<div class="section-title">部分参演作品一览</div>
+<div class="list-note">数据来自喜马拉雅，每日自动更新一次 · 点击作品卡片可直达喜马拉雅播放页</div>
+<div class="list-header">
+<div class="lh-left">
+<span class="lh-rank">排名</span>
+<span class="lh-cover">封面</span>
+<span>作品名 / 角色</span>
+</div>
+<div>播放量</div>
+</div>
 
-    <div id="cardList"></div>
-    <div class="empty-hint" id="emptyHint" style="display:none;">暂无数据</div>
-    <div class="error-hint" id="errorHint" style="display:none;">数据加载失败，请稍后重试或下拉刷新</div>
+<div id="cardList"></div>
+<div class="empty-hint" id="emptyHint" style="display:none;">暂无数据</div>
+<div class="error-hint" id="errorHint" style="display:none;">数据加载失败，请稍后重试或下拉刷新</div>
 
-    <div class="footer-note">如需新增或删除作品，请联系维护者更新</div>
-  </div>
+<div class="footer-note">如需新增或删除作品，请联系维护者更新</div>
+</div>
 
 <script>
-  // 数据文件托管在同一个仓库里，通过 raw.githubusercontent.com 读取（支持跨域），
-  // 每天由自动化任务更新这个文件的内容。
-  const DATA_URL = 'https://raw.githubusercontent.com/dragonliuxiaolong-ux/Audiobook-stats/main/data.json?_=' + Date.now();
+const DATA_URL = 'https://raw.githubusercontent.com/dragonliuxiaolong-ux/Audiobook-stats/main/data.json?_=' + Date.now();
 
-  // 专辑封面图（喜马拉雅 CDN），按作品 id 映射
-  const COVERS = {
-    85777813: 'https://imagev2.xmcdn.com/storages/5c13-audiofreehighqps/8D/68/GKwRIRwNGp3_AA_bOARJ5ob1.jpg',
-    83553521: 'https://imagev2.xmcdn.com/storages/a241-audiofreehighqps/6F/E5/GAqhexEKzEgrAAZkMQMWXOil.jpeg',
-    78275913: 'https://imagev2.xmcdn.com/storages/6061-audiofreehighqps/1E/C0/GKwRIMAI_xM0AANf3wJr4qb_.jpg',
-    84570614: 'https://imagev2.xmcdn.com/storages/cbdb-audiofreehighqps/B2/46/GAqh_aQNGX2aAAHpdgRJahQ-.jpg',
-    84232681: 'https://imagev2.xmcdn.com/storages/272f-audiofreehighqps/E1/02/GKwRIJILMQKNABAAAAM_nfK0.jpg',
-    87790920: 'https://imagev2.xmcdn.com/storages/e77d-audiofreehighqps/72/EC/GKwRIDoLaRJDAAHf4gNaqN1K.jpg',
-    85174684: 'https://imagev2.xmcdn.com/storages/4397-audiofreehighqps/3F/9F/GKwRIaILUF0OABAAAANNWWnv.jpg',
-    85103587: 'https://imagev2.xmcdn.com/storages/c515-audiofreehighqps/EA/D0/GAqh9sALVP7TAAGcWQNPoFTV.jpg',
-    86999133: 'https://imagev2.xmcdn.com/storages/02c6-audiofreehighqps/38/08/GKwRIUEMkupdABAAAAQKPLHZ.jpg',
-    96829475: 'https://imagev2.xmcdn.com/storages/7922-audiofreehighqps/4B/92/GKwRIaIMguO9AAQL3QQA2i48.jpg',
-    81090583: 'https://imagev2.xmcdn.com/storages/4ecb-audiofreehighqps/3E/F4/GMCoOSEJ1uLTAAN_OQK8xP9W.jpg',
-    88503620: 'https://imagev2.xmcdn.com/storages/133e-audiofreehighqps/30/10/GAqhqKwLqCqaABAAAAN9HYUu.jpg',
-    88303931: 'https://imagev2.xmcdn.com/storages/f539-audiofreehighqps/72/E7/GAqhQ6cLtpk_ABAAAAOEsMRH.jpg',
-    79502649: 'https://imagev2.xmcdn.com/storages/216c-audiofreehighqps/22/EF/GKwRIDoJl1baAAJdkQKlbgeo.jpg',
-    79376713: 'https://imagev2.xmcdn.com/storages/7a80-audiofreehighqps/92/8D/GKwRIUEJ4rFeAAGhrgLBPeyd.jpg',
-    93729324: 'https://imagev2.xmcdn.com/storages/27ef-audiofreehighqps/CE/04/GKwRIDoLwGxCAAPi8wOMKWyJ.jpg'
-  };
+const COVERS = {
+85777813: 'https://imagev2.xmcdn.com/storages/5c13-audiofreehighqps/8D/68/GKwRIRwNGp3_AA_bOARJ5ob1.jpg',
+83553521: 'https://imagev2.xmcdn.com/storages/a241-audiofreehighqps/6F/E5/GAqhexEKzEgrAAZkMQMWXOil.jpeg',
+78275913: 'https://imagev2.xmcdn.com/storages/6061-audiofreehighqps/1E/C0/GKwRIMAI_xM0AANf3wJr4qb_.jpg',
+84570614: 'https://imagev2.xmcdn.com/storages/cbdb-audiofreehighqps/B2/46/GAqh_aQNGX2aAAHpdgRJahQ-.jpg',
+84232681: 'https://imagev2.xmcdn.com/storages/272f-audiofreehighqps/E1/02/GKwRIJILMQKNABAAAAM_nfK0.jpg',
+87790920: 'https://imagev2.xmcdn.com/storages/e77d-audiofreehighqps/72/EC/GKwRIDoLaRJDAAHf4gNaqN1K.jpg',
+85174684: 'https://imagev2.xmcdn.com/storages/4397-audiofreehighqps/3F/9F/GKwRIaILUF0OABAAAANNWWnv.jpg',
+85103587: 'https://imagev2.xmcdn.com/storages/c515-audiofreehighqps/EA/D0/GAqh9sALVP7TAAGcWQNPoFTV.jpg',
+86999133: 'https://imagev2.xmcdn.com/storages/02c6-audiofreehighqps/38/08/GKwRIUEMkupdABAAAAQKPLHZ.jpg',
+96829475: 'https://imagev2.xmcdn.com/storages/7922-audiofreehighqps/4B/92/GKwRIaIMguO9AAQL3QQA2i48.jpg',
+81090583: 'https://imagev2.xmcdn.com/storages/4ecb-audiofreehighqps/3E/F4/GMCoOSEJ1uLTAAN_OQK8xP9W.jpg',
+88503620: 'https://imagev2.xmcdn.com/storages/133e-audiofreehighqps/30/10/GAqhqKwLqCqaABAAAAN9HYUu.jpg',
+88303931: 'https://imagev2.xmcdn.com/storages/f539-audiofreehighqps/72/E7/GAqhQ6cLtpk_ABAAAAOEsMRH.jpg',
+79502649: 'https://imagev2.xmcdn.com/storages/216c-audiofreehighqps/22/EF/GKwRIDoJl1baAAJdkQKlbgeo.jpg',
+79376713: 'https://imagev2.xmcdn.com/storages/7a80-audiofreehighqps/92/8D/GKwRIUEJ4rFeAAGhrgLBPeyd.jpg',
+93729324: 'https://imagev2.xmcdn.com/storages/27ef-audiofreehighqps/CE/04/GKwRIDoLwGxCAAPi8wOMKWyJ.jpg',
+92238700: 'https://imagev2.xmcdn.com/storages/56b1-audiofreehighqps/56/3C/GKwRIRwL5WiOAAK4fAOifkUg.jpg'
+};
 
-  function initMarquee() {
-    const track = document.getElementById('marqueeTrack');
-    if (!track) return;
-    const urls = Object.values(COVERS);
-    if (!urls.length) return;
-    // 复制一份拼接在后面，配合 -50% 位移实现无缝循环滚动
-    const doubled = urls.concat(urls);
-    track.innerHTML = doubled.map(u => `<img src="${u}" alt="作品封面" loading="lazy">`).join('');
-  }
-  initMarquee();
+function initMarquee() {
+const track = document.getElementById('marqueeTrack');
+if (!track) return;
+const urls = Object.values(COVERS);
+if (!urls.length) return;
+const doubled = urls.concat(urls);
+track.innerHTML = doubled.map(u => `<img src="${u}" alt="作品封面" loading="lazy">`).join('');
+}
+initMarquee();
 
-  function fmtCount(n) {
-    if (n === null || n === undefined || isNaN(n)) return '--';
-    if (n >= 100000000) return (n / 100000000).toFixed(1) + '亿';
-    return Math.round(n / 10000) + '万';
-  }
+function fmtCount(n) {
+if (n === null || n === undefined || isNaN(n)) return '--';
+if (n >= 100000000) return (n / 100000000).toFixed(1) + '亿';
+return Math.round(n / 10000) + '万';
+}
 
-  function escapeHtml(s) {
-    return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({
-      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-    }[c]));
-  }
+function escapeHtml(s) {
+return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({
+'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+}[c]));
+}
 
-  // 仅展示播放量达到千万级别的作品；未达标的作品会自动隐藏，
-  // 等数据更新后播放量过千万会自动出现，无需手动维护
-  const MIN_PLAY_COUNT = 10000000;
+const MIN_PLAY_COUNT = 10000000;
 
-  function render(works, updatedAt) {
-    const list = document.getElementById('cardList');
-    const emptyHint = document.getElementById('emptyHint');
-    list.innerHTML = '';
+function render(works, updatedAt) {
+const list = document.getElementById('cardList');
+const emptyHint = document.getElementById('emptyHint');
+list.innerHTML = '';
 
-    const visible = (works || []).filter(w => (w.playCount || 0) >= MIN_PLAY_COUNT);
-    emptyHint.style.display = (visible.length === 0) ? 'block' : 'none';
+const visible = (works || []).filter(w => (w.playCount || 0) >= MIN_PLAY_COUNT);
+emptyHint.style.display = (visible.length === 0) ? 'block' : 'none';
 
-    const sorted = [...visible].sort((a, b) => (b.playCount || 0) - (a.playCount || 0));
-    sorted.forEach((w, idx) => {
-      const rank = idx + 1;
-      const card = document.createElement('a');
-      card.className = 'card';
-      card.href = `https://www.ximalaya.com/album/${w.id}`;
-      card.target = '_blank';
-      card.rel = 'noopener noreferrer';
-      const tagClass = w.level === '主角' ? 'lead' : 'support';
-      const cover = COVERS[w.id] || '';
-      card.innerHTML = `
-        <div class="top-row">
-          <div class="left">
-            <div class="rank${rank <= 3 ? ' top3' : ''}">${rank}</div>
-            ${cover ? `<img class="cover" src="${cover}" alt="${escapeHtml(w.title)}封面" loading="lazy">` : ''}
-            <div style="min-width:0;">
-              <div class="title">${escapeHtml(w.title)}</div>
-              <div class="meta"><span class="tag ${tagClass}">${escapeHtml(w.level)}</span><span>饰 ${escapeHtml(w.role)}</span></div>
-            </div>
-          </div>
-          <div class="right">
-            <div class="play-count">${fmtCount(w.playCount)}<span class="arrow">›</span></div>
-            <div class="updated">截至 ${escapeHtml(w.updated || '--')}</div>
-          </div>
-        </div>
-      `;
-      list.appendChild(card);
-    });
+const sorted = [...visible].sort((a, b) => (b.playCount || 0) - (a.playCount || 0));
+sorted.forEach((w, idx) => {
+const rank = idx + 1;
+const card = document.createElement('a');
+card.className = 'card';
+card.href = `https://www.ximalaya.com/album/${w.id}`;
+card.target = '_blank';
+card.rel = 'noopener noreferrer';
+const tagClass = w.level === '主角' ? 'lead' : 'support';
+const cover = COVERS[w.id] || '';
+card.innerHTML = `
+<div class="top-row">
+<div class="left">
+<div class="rank${rank <= 3 ? ' top3' : ''}">${rank}</div>
+${cover ? `<img class="cover" src="${cover}" alt="${escapeHtml(w.title)}封面" loading="lazy">` : ''}
+<div style="min-width:0;">
+<div class="title">${escapeHtml(w.title)}</div>
+<div class="meta"><span class="tag ${tagClass}">${escapeHtml(w.level)}</span><span>饰 ${escapeHtml(w.role)}</span></div>
+</div>
+</div>
+<div class="right">
+<div class="play-count">${fmtCount(w.playCount)}<span class="arrow">›</span></div>
+<div class="updated">截至 ${escapeHtml(w.updated || '--')}</div>
+</div>
+</div>
+`;
+list.appendChild(card);
+});
 
-    document.getElementById('statusLine').textContent = updatedAt ? `数据更新于 ${updatedAt}` : '';
-  }
+document.getElementById('statusLine').textContent = updatedAt ? `数据更新于 ${updatedAt}` : '';
+}
 
-  async function load() {
-    try {
-      const res = await fetch(DATA_URL, { cache: 'no-store' });
-      if (!res.ok) throw new Error('http ' + res.status);
-      const data = await res.json();
-      render(data.works, data.updatedAt);
-      document.getElementById('errorHint').style.display = 'none';
-    } catch (e) {
-      document.getElementById('errorHint').style.display = 'block';
-      document.getElementById('statusLine').textContent = '';
-    }
-  }
+async function load() {
+try {
+const res = await fetch(DATA_URL, { cache: 'no-store' });
+if (!res.ok) throw new Error('http ' + res.status);
+const data = await res.json();
+render(data.works, data.updatedAt);
+document.getElementById('errorHint').style.display = 'none';
+} catch (e) {
+document.getElementById('errorHint').style.display = 'block';
+document.getElementById('statusLine').textContent = '';
+}
+}
 
-  load();
+load();
 </script>
 </body>
 </html>

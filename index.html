@@ -334,21 +334,44 @@ box-shadow: 0 4px 14px rgba(120, 90, 50, 0.15);
 from { transform: translateX(0); }
 to { transform: translateX(-50%); }
 }
-.demo-box {
-background: var(--cream);
-border-radius: 14px;
-padding: 14px 16px;
+.demo-card {
+background: linear-gradient(135deg, #fdf6ec 0%, #f5e6d0 60%, #eedcc5 100%);
+border-radius: 20px;
+padding: 22px 20px 20px;
+margin-bottom: 26px;
+box-shadow: 0 4px 24px rgba(201,138,75,0.16);
+border: 1px solid rgba(201,138,75,0.22);
 }
-.demo-label {
-font-size: 13px;
-font-weight: 700;
-color: var(--ink);
-margin-bottom: 10px;
+.demo-header {
 display: flex;
 align-items: center;
-gap: 6px;
+gap: 16px;
+margin-bottom: 16px;
 }
-.demo-box audio { width: 100%; display: block; }
+.demo-icon {
+font-size: 40px;
+flex-shrink: 0;
+line-height: 1;
+filter: drop-shadow(0 2px 6px rgba(201,138,75,0.35));
+}
+.demo-title {
+font-size: 17px;
+font-weight: 800;
+color: var(--ink);
+line-height: 1.3;
+}
+.demo-sub {
+font-size: 12px;
+color: var(--muted);
+margin-top: 4px;
+letter-spacing: 0.3px;
+}
+.demo-audio {
+width: 100%;
+display: block;
+border-radius: 10px;
+accent-color: var(--accent);
+}
 
 .empty-hint, .error-hint { text-align: center; color: var(--muted); font-size: 13px; margin-top: 30px; }
 .footer-note { text-align: center; color: #c9bfb2; font-size: 12px; margin-top: 28px; line-height: 1.7; }
@@ -401,11 +424,15 @@ gap: 6px;
 </div>
 
 <div class="section-title">声音展示</div>
-<div class="bio-card">
-<div class="demo-box">
-<div class="demo-label">🎧 个人声音展示 · CV小蛟龙的声展2024</div>
-<audio controls preload="none" src="voice_demo.mp3">您的浏览器不支持音频播放，可点击下载试听。</audio>
+<div class="demo-card">
+<div class="demo-header">
+<div class="demo-icon">🎧</div>
+<div>
+<div class="demo-title">个人声音展示</div>
+<div class="demo-sub">CV小蛟龙的声展 · 2024</div>
 </div>
+</div>
+<audio class="demo-audio" controls preload="none" src="voice_demo.mp3">您的浏览器不支持音频播放，可点击下载试听。</audio>
 </div>
 
 <div class="status-line" id="statusLine">加载中…</div>
@@ -431,7 +458,6 @@ gap: 6px;
 <div class="empty-hint" id="emptyHint" style="display:none;">暂无数据</div>
 <div class="error-hint" id="errorHint" style="display:none;">数据加载失败，请稍后重试或下拉刷新</div>
 
-<div class="footer-note">如需新增或删除作品，请联系维护者更新</div>
 </div>
 
 <script>

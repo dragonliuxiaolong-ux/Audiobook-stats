@@ -357,7 +357,7 @@ gap: 6px;
     position: fixed;
     z-index: 9999;
     pointer-events: none;
-    width: 140px;
+    width: 70px;
   }
 
   /* Speech bubble */
@@ -393,7 +393,7 @@ gap: 6px;
   /* Dragon image wrapper */
   #dragonWrap {
     display: block;
-    width: 140px;
+    width: 70px;
     cursor: pointer;
     pointer-events: all;
     transform-origin: center bottom;
@@ -401,7 +401,7 @@ gap: 6px;
   }
 
   #dragonImg {
-    width: 140px;
+    width: 70px;
     display: block;
     transition: transform 0.1s ease;
   }
@@ -512,11 +512,11 @@ gap: 6px;
 <span class="bio-tag">男声</span>
 <span class="bio-tag">本音青年音</span>
 <span class="bio-tag">全声线</span>
-<span class="bio-tag">从业 4 年</span>
+<span class="bio-tag">从业 5 年</span>
 </div>
 <p class="bio-text">
 圈名 CV小蛟龙，男声配音演员，本音为青年音，音色可塑性强、全声线覆盖，
-从业 4 年以来，擅长短剧、漫剧、动漫、广播剧、有声剧、游戏配音等多种类型的角色演绎。
+从业 5 年以来，擅长短剧、漫剧、动漫、广播剧、有声剧、游戏配音等多种类型的角色演绎。
 </p>
 <p class="bio-text">
 参与的动漫作品有《憨豆先生》中文版、《咖宝车神之超能救援队》，
@@ -696,12 +696,12 @@ load();
   };
 
   const HEIGHTS = {
-    expect: 121,
-    normal: 120,
-    happy: 125,
-    curious: 136,
-    satisfy: 124,
-    sleep: 72
+    expect: 61,
+    normal: 60,
+    happy: 63,
+    curious: 68,
+    satisfy: 62,
+    sleep: 36
   };
 
   // ── Elements ─────────────────────────────────────────────
@@ -714,7 +714,7 @@ load();
   Object.values(SPRITES).forEach(src => { const i = new Image(); i.src = src; });
 
   // ── State ─────────────────────────────────────────────────
-  let x = window.innerWidth - 180;
+  let x = window.innerWidth - 100;
   let y = window.innerHeight - 200;
   let tx = x, ty = y;
   let facing = -1;   // 1=right, -1=left
@@ -819,7 +819,24 @@ load();
   }
 
   // ── Click interaction ─────────────────────────────────────
-  wrap.addEventListener('click', () => {
+  // Drag support
+  let dragging = false, dragOffX = 0, dragOffY = 0, dragMoved = false;
+  wrap.addEventListener('pointerdown', (e) => {
+    dragging = true; dragMoved = false;
+    dragOffX = e.clientX - x; dragOffY = e.clientY - y;
+    wrap.setPointerCapture(e.pointerId);
+    e.preventDefault();
+  });
+  window.addEventListener('pointermove', (e) => {
+    if (!dragging) return;
+    const nx = e.clientX - dragOffX, ny = e.clientY - dragOffY;
+    if (Math.abs(nx - x) > 3 || Math.abs(ny - y) > 3) dragMoved = true;
+    x = nx; y = ny; tx = x; ty = y;
+    if (state !== 'idle') { setState('idle'); setExpr('normal'); }
+  });
+  window.addEventListener('pointerup', () => { dragging = false; });
+
+  wrap.addEventListener('click', () => { if (dragMoved) return;
     if (sleeping) {
       sleeping = false;
       bubble.classList.remove('show');
@@ -862,8 +879,8 @@ load();
       }
     }
     // Clamp to viewport
-    x = Math.max(10,  Math.min(window.innerWidth  - 150, x));
-    y = Math.max(50,  Math.min(window.innerHeight - 180, y));
+    x = Math.max(10,  Math.min(window.innerWidth  - 80, x));
+    y = Math.max(50,  Math.min(window.innerHeight - 100, y));
     applyPos();
     requestAnimationFrame(loop);
   }

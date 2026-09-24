@@ -868,6 +868,42 @@ load();
     requestAnimationFrame(loop);
   }
 
+  // ── Section scroll reactions ──────────────────────────────
+  const SECTIONS = [
+    { id: 'section-contact', expr: 'expect',  msg: '快来找我配音！🎙️' },
+    { id: 'section-bio',     expr: 'normal',  msg: '这就是小蛟龙本人~' },
+    { id: 'section-demo',    expr: 'curious', msg: '来听听我的声音？🎧' },
+    { id: 'section-stats',   expr: 'happy',   msg: '5年，200+作品！✨' },
+    { id: 'section-works',   expr: 'satisfy', msg: '都是我参演的！💪' },
+  ];
+  let lastSection = null;
+
+  function onScroll() {
+    if (sleeping) return;
+    const viewMid = window.scrollY + window.innerHeight * 0.55;
+    let matched = null;
+    for (const sec of SECTIONS) {
+      const el = document.getElementById(sec.id);
+      if (el && el.getBoundingClientRect().top + window.scrollY <= viewMid) matched = sec;
+    }
+    const key = matched ? matched.id : 'top';
+    if (key !== lastSection) {
+      lastSection = key;
+      if (!sleeping && state !== 'walk') {
+        if (matched) {
+          setExpr(matched.expr);
+          showBubble(matched.msg, 3500);
+          setTimeout(() => { if (!sleeping) setExpr('normal'); }, 3500);
+        } else {
+          setExpr('happy');
+          showBubble('你好！我是CV小蛟龙 ✨', 3500);
+          setTimeout(() => { if (!sleeping) setExpr('normal'); }, 3500);
+        }
+      }
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+
   // ── Init ──────────────────────────────────────────────────
   pet.style.position = 'fixed';
   pet.style.left = x + 'px';
@@ -877,6 +913,9 @@ load();
   scheduleMove();
   scheduleIdleSpeech();
   loop();
+
+  // Greeting on load
+  setTimeout(() => showBubble('你好！我是CV小蛟龙 ✨', 4000), 1000);
 
 })();
 </script>

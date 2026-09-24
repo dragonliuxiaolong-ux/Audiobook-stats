@@ -401,6 +401,7 @@ gap: 6px;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     user-select: none;
+    touch-action: none;
   }
 
   #dragonImg {
@@ -828,22 +829,24 @@ load();
   // ── Click interaction ─────────────────────────────────────
   // Drag support
   let dragging = false, dragOffX = 0, dragOffY = 0, dragMoved = false;
-  wrap.addEventListener('contextmenu', (e) => e.preventDefault());
-  document.getElementById('dragonImg').addEventListener('contextmenu', (e) => e.preventDefault());
+  pet.addEventListener('contextmenu', (e) => e.preventDefault());
   wrap.addEventListener('pointerdown', (e) => {
     dragging = true; dragMoved = false;
     dragOffX = e.clientX - x; dragOffY = e.clientY - y;
     wrap.setPointerCapture(e.pointerId);
     e.preventDefault();
+    e.stopPropagation();
   });
-  window.addEventListener('pointermove', (e) => {
+  wrap.addEventListener('pointermove', (e) => {
     if (!dragging) return;
+    e.preventDefault();
     const nx = e.clientX - dragOffX, ny = e.clientY - dragOffY;
     if (Math.abs(nx - x) > 3 || Math.abs(ny - y) > 3) dragMoved = true;
     x = nx; y = ny; tx = x; ty = y;
     if (state !== 'idle') { setState('idle'); setExpr('normal'); }
   });
-  window.addEventListener('pointerup', () => { dragging = false; });
+  wrap.addEventListener('pointerup', () => { dragging = false; });
+  wrap.addEventListener('pointercancel', () => { dragging = false; });
 
   wrap.addEventListener('click', () => { if (dragMoved) return;
     if (sleeping) {

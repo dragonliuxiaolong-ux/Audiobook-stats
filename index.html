@@ -722,8 +722,8 @@ load();
   Object.values(SPRITES).forEach(src => { const i = new Image(); i.src = src; });
 
   // ── State ─────────────────────────────────────────────────
-  let x = window.innerWidth - 100;
-  let y = window.innerHeight - 200;
+  let x = 80 + Math.random() * (window.innerWidth  - 200);
+  let y = 80 + Math.random() * (window.innerHeight - 200);
   let tx = x, ty = y;
   let facing = -1;   // 1=right, -1=left
   let state  = 'idle';

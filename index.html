@@ -398,12 +398,19 @@ gap: 6px;
     pointer-events: all;
     transform-origin: center bottom;
     filter: drop-shadow(0 6px 12px rgba(0,0,0,0.18));
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
   }
 
   #dragonImg {
     width: 70px;
     display: block;
     transition: transform 0.1s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
   }
 
   /* Animations */
@@ -821,6 +828,8 @@ load();
   // ── Click interaction ─────────────────────────────────────
   // Drag support
   let dragging = false, dragOffX = 0, dragOffY = 0, dragMoved = false;
+  wrap.addEventListener('contextmenu', (e) => e.preventDefault());
+  document.getElementById('dragonImg').addEventListener('contextmenu', (e) => e.preventDefault());
   wrap.addEventListener('pointerdown', (e) => {
     dragging = true; dragMoved = false;
     dragOffX = e.clientX - x; dragOffY = e.clientY - y;

@@ -241,6 +241,9 @@ transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease
 .card .play-count { font-family: var(--serif); font-size: 19px; font-weight: 900; color: #8a5a2b; white-space: nowrap; }
 .card .updated { font-size: 11px; color: #c0b09b; margin-top: 4px; white-space: nowrap; }
 .card .arrow { font-size: 13px; color: #c0b09b; margin-left: 4px; }
+.card.card-yi { background: linear-gradient(100deg, #fffaf1 0%, #fbefdc 100%); border-color: rgba(201, 150, 95, 0.55); box-shadow: 0 4px 14px rgba(168, 116, 63, 0.14); }
+.card .play-count.yi { font-size: 23px; background: linear-gradient(180deg, #c9965f 0%, #8a5a2b 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.card .play-count.yi .arrow { color: #c0b09b; -webkit-text-fill-color: #c0b09b; }
 .empty-hint, .error-hint { text-align: center; color: var(--muted); font-size: 13px; margin-top: 24px; }
 
 /* ---------- Tablet ---------- */
@@ -344,6 +347,7 @@ transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease
 .card .meta { font-size: 13px; }
 .card .play-count { font-size: 20px; }
 .card .updated { font-size: 10px; }
+.card .play-count.yi { font-size: 23px; }
 }
 @media (max-width: 370px) {
 .sec-note { display: none; }
@@ -701,7 +705,7 @@ const sorted = [...visible].sort((a, b) => (b.playCount || 0) - (a.playCount || 
 sorted.forEach((w, idx) => {
 const rank = idx + 1;
 const card = document.createElement('a');
-card.className = 'card';
+card.className = 'card' + ((w.playCount || 0) >= 100000000 ? ' card-yi' : '');
 card.href = `https://www.ximalaya.com/album/${w.id}`;
 card.target = '_blank';
 card.rel = 'noopener noreferrer';
@@ -718,7 +722,7 @@ ${cover ? `<img class="cover" src="${cover}" alt="${escapeHtml(w.title)}封面" 
 </div>
 </div>
 <div class="right">
-<div class="play-count">${fmtCount(w.playCount)}<span class="arrow">›</span></div>
+<div class="play-count${(w.playCount || 0) >= 100000000 ? ' yi' : ''}">${fmtCount(w.playCount)}<span class="arrow">›</span></div>
 <div class="updated">截至 ${escapeHtml(w.updated || '--')}</div>
 </div>
 </div>

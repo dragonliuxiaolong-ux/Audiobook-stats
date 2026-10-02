@@ -216,6 +216,7 @@ border-radius: 10px; padding: 10px 16px; margin-bottom: 10px;
 font-size: 13px; color: #5a4632; font-weight: 600;
 }
 .list-header .lh-left { display: flex; align-items: center; gap: 14px; }
+.list-header span { white-space: nowrap; }
 .list-header .lh-rank { width: 26px; text-align: center; }
 .list-header .lh-cover { width: 60px; text-align: center; }
 
@@ -330,13 +331,13 @@ transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease
 .stat .num small { font-size: 16px; }
 .stat .label { font-size: 11px; margin-top: 3px; }
 
-.list-header { padding: 8px 10px; font-size: 12px; }
+.list-header { padding: 8px 11px; font-size: 12px; white-space: nowrap; }
 .list-header .lh-left { gap: 10px; }
-.list-header .lh-rank { width: 20px; }
+.list-header .lh-rank { width: 26px; }
 .list-header .lh-cover { width: 66px; }
 .card { padding: 10px 10px; }
 .card .left { gap: 10px; }
-.rank { width: 20px; font-size: 17px; }
+.rank { width: 26px; font-size: 17px; }
 .rank.top3 { font-size: 20px; }
 .cover { width: 66px; height: 66px; }
 .card .title { font-size: 16px; }
@@ -564,7 +565,7 @@ transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease
 <img class="player-bgwave" src="ui-wave1.webp" alt="" aria-hidden="true">
 <button class="play-btn" id="playBtn" type="button" aria-label="播放"><svg viewBox="0 0 24 24" id="playIcon"><path d="M8 5.5v13l11-6.5z"/></svg></button>
 <div class="player-main">
-<div class="player-title">个人声音展示 · CV小蛟龙的声展2024</div>
+<div class="player-title">CV小蛟龙 · 声展2024</div>
 <div class="player-row">
 <div class="progress" id="progress"><div class="progress-track"><div class="progress-fill" id="progFill"></div><div class="progress-dot" id="progDot"></div></div></div>
 <span class="player-time" id="playerTime">00:00 / --:--</span>

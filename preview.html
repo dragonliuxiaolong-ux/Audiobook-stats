@@ -61,14 +61,14 @@ content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 90px; poi
 background: linear-gradient(180deg, rgba(246,239,228,0), #f6efe4);
 }
 .hero-bokeh { position: absolute; top: -20px; left: 46%; width: 200px; opacity: 0.55; pointer-events: none; z-index: 0; }
-.hero-mic { position: absolute; top: -6px; right: -18px; height: 330px; opacity: 0.95; pointer-events: none; z-index: 0; }
+.hero-mic { position: absolute; top: -40px; right: -110px; height: 330px; opacity: 0.95; pointer-events: none; z-index: 0; }
 .hero-good {
-position: absolute; right: 26px; bottom: 58px; z-index: 1;
+position: absolute; right: -40px; bottom: -34px; z-index: 1;
 font-family: var(--script); font-size: 24px; line-height: 1.05; color: rgba(150, 108, 66, 0.75);
 transform: rotate(-14deg); text-align: left; pointer-events: none; white-space: nowrap;
 }
-.hero-inner { max-width: 820px; margin: 0 auto; display: flex; align-items: center; gap: 30px; position: relative; z-index: 1; }
-.avatar-wrap { position: relative; flex-shrink: 0; width: 210px; height: 210px; }
+.hero-inner { max-width: 788px; margin: 0 auto; display: flex; align-items: center; gap: 30px; position: relative; z-index: 1; }
+.avatar-wrap { position: relative; z-index: 1; flex-shrink: 0; width: 210px; height: 210px; }
 .avatar-wrap::before {
 content: ""; position: absolute; inset: -9px; border-radius: 50%;
 border: 1px solid rgba(176, 130, 80, 0.45);
@@ -79,7 +79,7 @@ border: 4px solid #fbf3e6;
 box-shadow: 0 10px 30px rgba(120, 80, 40, 0.22);
 }
 .avatar-va { position: absolute; left: -26px; bottom: -14px; width: 250px; transform: rotate(-6deg); pointer-events: none; }
-.hero-text { min-width: 0; padding-right: 150px; }
+.hero-text { min-width: 0; padding-right: 150px; position: relative; z-index: 1; }
 .eyebrow { display: block; font-family: var(--serif); font-size: 13px; letter-spacing: 6px; color: #8a6a48; margin-bottom: 6px; }
 .name-row { display: flex; align-items: center; gap: 10px; }
 .brand-name {
@@ -153,7 +153,7 @@ border-radius: 999px; padding: 7px 18px 7px 14px;
 
 /* ---------- Covers ---------- */
 .cover-marquee {
-overflow: hidden;
+overflow: hidden; margin: 2px -16px 14px; padding: 0 16px;
 -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
 mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
 }
@@ -245,8 +245,8 @@ transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease
 /* ---------- Tablet ---------- */
 @media (max-width: 760px) {
 .hero-text { padding-right: 60px; }
-.hero-mic { height: 250px; opacity: 0.55; right: -40px; }
-.hero-good { font-size: 19px; right: 12px; bottom: 50px; }
+.hero-mic { height: 250px; opacity: 0.55; right: -50px; top: -30px; }
+.hero-good { font-size: 19px; right: 0; bottom: -36px; }
 .avatar-wrap { width: 170px; height: 170px; }
 .avatar-va { width: 200px; }
 .brand-name { font-size: 46px; }
@@ -272,9 +272,9 @@ transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease
 .avatar-wrap::before { inset: -6px; }
 .avatar { border-width: 3px; }
 .avatar-va { width: 140px; left: -14px; bottom: -14px; }
-.hero-mic { height: 180px; opacity: 0.3; right: -46px; top: 0; }
+.hero-mic { height: 180px; opacity: 0.3; right: -40px; top: -24px; }
 .hero-bokeh { width: 130px; left: 50%; }
-.hero-good { font-size: 15px; right: 10px; bottom: 30px; }
+.hero-good { font-size: 15px; right: 0; bottom: -40px; }
 .eyebrow { font-size: 10px; letter-spacing: 4px; margin-bottom: 3px; }
 .brand-name { font-size: 33px; }
 .name-wave { height: 20px; }
@@ -308,6 +308,7 @@ transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease
 
 .marquee-track { gap: 10px; }
 .marquee-track img { width: 84px; height: 112px; }
+.cover-marquee { margin: 0 -12px 12px; padding: 0 12px; }
 
 .player { gap: 12px; padding: 14px; }
 .play-btn { width: 46px; height: 46px; }
@@ -481,9 +482,10 @@ transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease
 <body>
 <div class="hero">
 <img class="hero-bokeh" src="ui-bokeh.webp" alt="" aria-hidden="true">
+<div class="hero-inner">
 <img class="hero-mic" src="ui-mic.webp" alt="" aria-hidden="true">
 <div class="hero-good" aria-hidden="true">Good<br>&nbsp;&nbsp;Voice<br>&nbsp;&nbsp;&nbsp;&nbsp;Better Stories.</div>
-<div class="hero-inner">
+
 <div class="avatar-wrap">
 <img class="avatar" src="avatar.jpg" alt="CV小蛟龙头像">
 <img class="avatar-va" src="ui-voiceactor.webp" alt="" aria-hidden="true">
@@ -539,11 +541,8 @@ transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease
 </p>
 </div>
 
-<div class="card-box">
-<div class="sec-head"><img class="sec-icon" src="ic-folder.webp" alt=""><span class="sec-title">代表作品</span><span class="sec-line"></span></div>
 <div class="cover-marquee">
 <div class="marquee-track" id="marqueeTrack"></div>
-</div>
 </div>
 
 <div id="section-demo" class="card-box">

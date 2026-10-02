@@ -283,6 +283,10 @@ transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease
 .subtitle-line { width: 190px; }
 
 .card-box { padding: 16px 14px; border-radius: 16px; margin-bottom: 12px; }
+#section-stats { padding-top: 14px; padding-bottom: 14px; }
+#section-stats .sec-head { margin-bottom: 8px; }
+#section-works { padding-left: 10px; padding-right: 10px; }
+#section-works .sec-head, #section-works .list-note { padding: 0 4px; }
 .sec-head { gap: 8px; margin-bottom: 12px; }
 .sec-icon { width: 20px; height: 20px; }
 .sec-title { font-size: 18px; }
@@ -319,20 +323,26 @@ transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease
 .vol-btn img { width: 20px; height: 20px; }
 .player-bgwave { width: 140px; }
 
-.stat { flex-direction: column; gap: 6px; text-align: center; }
-.stat-icon { width: 40px; height: 40px; }
-.stat-icon img { width: 22px; height: 22px; }
-.stat .num { font-size: 30px; }
-.stat .num small { font-size: 20px; }
-.stat .label { font-size: 12px; margin-top: 4px; }
+.stat { flex-direction: column; gap: 4px; text-align: center; padding: 0 4px; }
+.stat-icon { width: 30px; height: 30px; }
+.stat-icon img { width: 17px; height: 17px; }
+.stat .num { font-size: 23px; }
+.stat .num small { font-size: 16px; }
+.stat .label { font-size: 11px; margin-top: 3px; }
 
-.list-header { padding: 8px 12px; font-size: 12px; }
-.card { padding: 10px 12px; }
+.list-header { padding: 8px 10px; font-size: 12px; }
+.list-header .lh-left { gap: 10px; }
+.list-header .lh-rank { width: 20px; }
+.list-header .lh-cover { width: 66px; }
+.card { padding: 10px 10px; }
 .card .left { gap: 10px; }
-.cover { width: 52px; height: 52px; }
-.list-header .lh-cover { width: 52px; }
-.card .title { font-size: 15px; }
-.card .play-count { font-size: 17px; }
+.rank { width: 20px; font-size: 17px; }
+.rank.top3 { font-size: 20px; }
+.cover { width: 66px; height: 66px; }
+.card .title { font-size: 16px; }
+.card .meta { font-size: 13px; }
+.card .play-count { font-size: 20px; }
+.card .updated { font-size: 10px; }
 }
 @media (max-width: 370px) {
 .sec-note { display: none; }

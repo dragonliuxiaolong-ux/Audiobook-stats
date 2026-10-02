@@ -208,7 +208,7 @@ display: flex; align-items: center; justify-content: center;
 
 /* ---------- Works list ---------- */
 .status-line { font-size: 12px; color: var(--muted); margin: 0 0 8px; min-height: 16px; padding: 0 2px; }
-.list-note { font-size: 12px; color: var(--muted); margin: -6px 0 12px; }
+.list-note { font-size: 12px; color: var(--muted); margin: -4px 0 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .list-header {
 display: flex; justify-content: space-between; align-items: center;
 background: linear-gradient(180deg, #f4e8d6, #efe0ca);
@@ -300,9 +300,9 @@ transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease
 .contact-label { font-size: 15px; }
 .contact-value { font-size: 13px; }
 
-.bio-tags { gap: 8px; }
-.bio-tag { font-size: 13px; padding: 5px 12px 5px 10px; gap: 5px; }
-.bio-tag img, .bio-tag svg { width: 16px; height: 16px; }
+.bio-tags { gap: 5px; flex-wrap: nowrap; }
+.bio-tag { font-size: 12px; padding: 4px 9px 4px 7px; gap: 3px; white-space: nowrap; flex-shrink: 0; }
+.bio-tag img, .bio-tag svg { width: 13px; height: 13px; }
 .bio-text { font-size: 14px; line-height: 1.85; }
 .bio-mark { height: 200px; opacity: 0.1; right: -10px; }
 
@@ -339,6 +339,9 @@ transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease
 .brand-name { font-size: 29px; }
 .avatar-wrap { width: 100px; height: 100px; }
 .stat .label { font-size: 11px; }
+.bio-tags { gap: 4px; }
+.bio-tag { font-size: 11px; padding: 3px 7px 3px 6px; }
+.bio-tag img, .bio-tag svg { width: 12px; height: 12px; }
 }
 /* ===== Dragon Pet ===== */
   #dragonPet {
@@ -573,8 +576,7 @@ transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease
 
 <div id="section-works" class="card-box">
 <div class="sec-head"><img class="sec-icon" src="ic-folder.webp" alt=""><span class="sec-title">部分参演作品一览</span><span class="sec-line"></span><span class="sec-note">持续更新中 …</span></div>
-<div class="status-line" id="statusLine">加载中…</div>
-<div class="list-note">数据来自喜马拉雅，每日自动更新一次 · 点击作品卡片可直达喜马拉雅播放页</div>
+<div class="list-note"><span id="statusLine">加载中…</span> · 点击卡片可跳转喜马拉雅</div>
 <div class="list-header">
 <div class="lh-left">
 <span class="lh-rank">排名</span>
